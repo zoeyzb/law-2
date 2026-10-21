@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hale Marchetti Reyes — Criminal Defense (Concept Demo)</title>
+<meta name="description" content="Concept demonstration: a criminal defense law firm website. All people, cases and reviews are fictional."><meta name="theme-color" content="#07090d"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet"><style>
+:root{--ob:#090909;--ch:#171717;--iv:#F1EDE4;--au:#9b7b52;--mut:rgba(241,237,228,.7);--serif:"Cormorant Garamond","Didot","Bodoni MT",Georgia,serif;--sans:"Helvetica Neue",Arial,sans-serif;--px:clamp(20px,5vw,72px)}
+*{box-sizing:border-box;margin:0;padding:0}html{background:var(--ob)}
+body{background:var(--ob);color:var(--iv);font:17px/1.65 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block}:focus-visible{outline:2px solid var(--au);outline-offset:4px}
+.ph{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 20% 10%,#34302a,#0d0d0d 70%),repeating-linear-gradient(115deg,transparent 0 38px,rgba(155,123,82,.1) 39px,transparent 41px)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(1.08) brightness(.9)}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(9,9,9,.75));pointer-events:none}
+.grain{position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+@keyframes gr{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-2%)}}
+#load{position:fixed;inset:0;z-index:100;background:var(--ob);display:grid;place-items:center;font:300 clamp(24px,4vw,44px) var(--serif);letter-spacing:.3em;transition:opacity .9s}
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:24px var(--px);background:linear-gradient(rgba(9,9,9,.7),transparent)}
+.logo{font:500 20px var(--serif);letter-spacing:.28em}
+nav{display:flex;gap:clamp(14px,2.2vw,34px);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+nav a{color:var(--mut);padding:6px 0;border-bottom:1px solid transparent;transition:.4s}nav a:hover,nav a:focus-visible{color:var(--iv);border-color:var(--au)}
+.btn{display:inline-block;position:relative;border:1px solid var(--au);color:var(--iv);background:transparent;font:500 12px var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:20px 32px;cursor:pointer;overflow:hidden;isolation:isolate;transition:color .5s}
+.btn::before{content:"";position:absolute;inset:0;background:var(--au);transform:translateY(101%);transition:transform .5s cubic-bezier(.2,.8,.2,1);z-index:-1}
+.btn:hover,.btn:focus-visible{color:var(--ob)}.btn:hover::before,.btn:focus-visible::before{transform:none}
+section{position:relative}.pad{padding:clamp(90px,15vh,190px) var(--px)}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:.92}
+h2{font-size:clamp(46px,8vw,132px)}h2 span,h1 span{display:block;overflow:hidden;padding-bottom:.08em}
+/* hero */
+.hero{height:100vh;height:100svh;min-height:620px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--px) clamp(36px,7vh,80px)}
+.heroart,#gl{position:absolute;inset:0;width:100%;height:100%}
+.heroart{background:radial-gradient(ellipse 28% 62% at 50% 42%,#ffe6b8 0,rgba(255,214,150,.5) 35%,transparent 72%),linear-gradient(#050505,#15110b 55%,#050505)}
+.heroart svg{position:absolute;inset:0;width:100%;height:100%}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.78),rgba(5,5,5,.1) 65%),linear-gradient(transparent 50%,rgba(5,5,5,.85))}
+.hero>*:not(.heroart):not(.shade):not(#gl){position:relative;z-index:2}
+h1{font-size:clamp(54px,10.6vw,180px);max-width:8.6em;text-shadow:0 10px 60px #000}
+.sub{margin:30px 0 36px;font:italic 300 clamp(20px,2.2vw,30px) var(--serif);color:var(--au)}
+/* firm */
+.firm{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.firm h2{grid-column:1/9}.firm .l{grid-column:1/6;margin-top:6vh}.firm .l p{font:300 clamp(20px,1.7vw,25px)/1.55 var(--serif);color:var(--mut);margin-bottom:1.1em}.firm .l p:first-child{color:var(--iv)}
+.firm .a{grid-column:6/13;grid-row:1/3;margin-top:22vh;aspect-ratio:4/3}.firm .b{grid-column:9/13;grid-row:1;aspect-ratio:3/4;margin-top:-4vh;z-index:2;border:1px solid var(--au)}
+.stats{display:flex;gap:clamp(24px,5vw,70px);margin-top:44px;flex-wrap:wrap}.stats b{display:block;font:300 clamp(44px,5vw,76px)/1 var(--serif);color:var(--au)}.stats span{font-size:13px;color:var(--mut)}
+/* practice */
+.pa{display:grid;grid-template-columns:1.15fr 1fr;gap:5vw;background:var(--ch)}
+.pa h2{font-size:clamp(38px,5vw,84px);margin-bottom:5vh}
+.pa ul{list-style:none;border-top:1px solid rgba(241,237,228,.18)}.pa li{border-bottom:1px solid rgba(241,237,228,.18)}
+.pa button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:22px 0;font:300 clamp(28px,4.2vw,66px)/1 var(--serif);transition:padding .6s cubic-bezier(.2,.8,.2,1),color .4s}
+.pa button:hover,.pa button:focus-visible,.pa button[aria-expanded=true]{padding-left:clamp(12px,2.4vw,40px);color:var(--au)}
+.pa button i{font-style:normal;transition:transform .5s}.pa button[aria-expanded=true] i{transform:rotate(45deg)}
+.pa .d{max-height:0;overflow:hidden;transition:max-height .7s cubic-bezier(.2,.8,.2,1)}.pa .d p{max-width:560px;padding:0 0 28px clamp(12px,2.4vw,40px);color:var(--mut)}
+.pa .stage{position:sticky;top:12vh;height:76vh;border:1px solid rgba(155,123,82,.4)}
+.pa .stage .ph{position:absolute;inset:0;opacity:0;transition:opacity .9s}.pa .stage .ph.on{opacity:1}
+.stage figcaption{position:absolute;left:22px;bottom:18px;z-index:3;font:italic 300 26px var(--serif)}
+/* attorneys */
+
+
+
+
+/* process */
+.proc{height:100vh;height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4vw;padding:0 var(--px);overflow:hidden}
+.proc>.ph{position:absolute;inset:0;opacity:.35}.proc>.ph::after{background:linear-gradient(90deg,var(--ob),rgba(9,9,9,.3) 70%,var(--ob))}
+.proc>*{z-index:2}.proc svg{width:100%;max-height:74vh;position:relative}.proc svg *{fill:none;stroke:var(--au);stroke-width:1.2;vector-effect:non-scaling-stroke}
+.steps{position:relative;height:min(56vh,420px)}.step{position:absolute;inset:0}.step:not(:first-child){opacity:0}
+.step .n{font:300 clamp(90px,13vw,200px)/.8 var(--serif);color:transparent;-webkit-text-stroke:1px var(--au)}.step h3{font-size:clamp(34px,4.4vw,64px);margin:22px 0 12px}.step p{color:var(--mut);max-width:30em}
+.bar{position:absolute;left:0;bottom:-24px;height:1px;background:var(--au);width:0}
+/* cases */
+.cases{background:var(--ch)}.case{display:grid;grid-template-columns:110px 1.1fr 1.3fr;gap:24px;padding:34px 0;border-top:1px solid rgba(241,237,228,.18);align-items:start;transition:padding .6s,background .6s}
+.case:hover{padding-left:20px;background:linear-gradient(90deg,rgba(155,123,82,.08),transparent)}
+.case b{font:300 clamp(34px,4vw,56px)/1 var(--serif);color:var(--au)}.case h3{font-size:clamp(26px,3vw,42px)}.case small{display:block;margin-top:8px;font-size:12px;letter-spacing:.14em;color:var(--mut);text-transform:uppercase}.case p{color:var(--mut);font-size:15.5px}
+.cases .top{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:end;margin-bottom:8vh}.cases .top .ph{aspect-ratio:16/9}
+/* reviews */
+.rev{display:grid;grid-template-columns:1fr 1.5fr;gap:6vw;align-items:center;min-height:90vh}
+.rev .ph{aspect-ratio:3/4;max-width:420px;border:1px solid var(--au)}
+blockquote{font:italic 300 clamp(26px,3.6vw,56px)/1.18 var(--serif);min-height:5.5em}cite{display:block;margin-top:26px;font:500 12px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--au);font-style:normal}
+.dots{display:flex;gap:12px;margin-top:34px}.dots button{width:46px;height:46px;border:1px solid rgba(155,123,82,.5);background:none;color:var(--iv);cursor:pointer;font:16px var(--serif);transition:.4s}.dots button[aria-current=true],.dots button:hover{background:var(--au);color:var(--ob)}
+/* insights */
+.ins{background:var(--ch);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,44px)}.ins h2{grid-column:1/-1;margin-bottom:6vh;font-size:clamp(42px,6vw,100px)}
+.ins article:nth-of-type(2){margin-top:8vh}.ins .ph{aspect-ratio:4/3;margin-bottom:20px}.ins a:hover img{transform:scale(1.05)}.ins img{transition:transform 1.2s}
+.ins small{font-size:12px;letter-spacing:.16em;color:var(--au);text-transform:uppercase}.ins h3{font-size:30px;line-height:1.05;margin:8px 0 10px}.ins p{font-size:15px;color:var(--mut)}
+/* contact */
+.final{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr;gap:6vw;align-items:center;overflow:hidden}.final>.ph{position:absolute;inset:0;opacity:.4}.final>.ph::after{background:linear-gradient(90deg,var(--ob) 10%,rgba(9,9,9,.5) 60%,var(--ob))}.final>*{z-index:2}
+.final h2{font-size:clamp(46px,7.4vw,120px)}form{display:grid;gap:22px}
+label{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:4px}
+input,textarea,select{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(241,237,228,.35);color:var(--iv);font:300 22px var(--serif);padding:8px 0;border-radius:0}select option{background:#171717}
+input:focus,textarea:focus,select:focus{outline:0;border-color:var(--au)}textarea{min-height:90px;resize:vertical}
+.err{color:#e6a98f;font-size:13px;display:block;min-height:1em}.chk{display:flex;gap:12px;font-size:13px;color:var(--mut);text-transform:none;letter-spacing:0}.chk input{width:18px;height:18px;margin-top:3px;accent-color:var(--au)}
+#status{min-height:1.4em;font-size:14px}
+footer{background:#050505;padding:80px var(--px) 36px;border-top:1px solid rgba(155,123,82,.3);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;font-size:14px;color:var(--mut)}
+footer .logo{font-size:26px;color:var(--iv);display:block;margin-bottom:14px}footer h4{font:500 11px var(--sans);letter-spacing:.2em;color:var(--au);margin-bottom:14px;text-transform:uppercase}footer li{list-style:none;margin-bottom:8px}footer a:hover{color:var(--iv)}
+footer .fine{grid-column:1/-1;border-top:1px solid rgba(241,237,228,.12);padding-top:24px;font-size:12px}
+.demo{position:fixed;left:16px;bottom:16px;z-index:60;font-size:11px;letter-spacing:.12em;color:var(--mut);background:rgba(9,9,9,.8);border:1px solid rgba(155,123,82,.4);padding:6px 12px;backdrop-filter:blur(6px)}
+@media(max-width:860px){nav a:not(.k){display:none}.firm,.pa,.rev,.ins,.final,.cases .top,footer{grid-template-columns:1fr}.firm h2,.firm .l,.firm .a,.firm .b{grid-column:1;grid-row:auto;margin-top:0}.firm .b{display:none}.pa .stage{position:relative;top:0;height:46vh;order:-1}.proc{grid-template-columns:1fr}.proc svg{display:none}.case{grid-template-columns:1fr}.ins article{margin-top:0!important}.demo{bottom:8px;left:8px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}.grain{display:none}}
+#gl{position:fixed!important;z-index:0;inset:0;width:100%;height:100%}
+.pad{background:rgba(9,9,9,.84)}.pad.pa,.pad.cases,.pad.ins{background:rgba(23,23,23,.9)}.pad.final{background:rgba(9,9,9,.4)}.proc{background:rgba(9,9,9,.45)}
+
+.firm h2{position:relative}.stage,
+.pad{background:linear-gradient(90deg,rgba(9,9,9,.8),rgba(9,9,9,.3))}.pad.pa{background:linear-gradient(90deg,rgba(9,9,9,.88),rgba(9,9,9,.15) 55%,transparent)}.pad.cases{background:rgba(9,9,9,.38)}#firm{background:linear-gradient(90deg,rgba(9,9,9,.7),rgba(9,9,9,.05) 70%)}
+#attorneys,#reviews,#insights{background:rgba(9,9,9,.9)}.pad.final{background:linear-gradient(90deg,rgba(9,9,9,.75),rgba(9,9,9,.05))}.proc{background:transparent}.proc>svg{visibility:hidden}.proc>.ph{opacity:0}
+.stage{border:0}.stage .ph{display:none}.stage figcaption{font-size:clamp(28px,3vw,46px);left:auto;right:0;bottom:0;text-align:right}
+h1,h2{text-shadow:0 6px 40px rgba(0,0,0,.8)}.case p,.case small{text-shadow:0 2px 12px #000}
+
+@media(max-width:860px){.pad{background:rgba(9,9,9,.82)}.pad.pa{background:rgba(9,9,9,.7)}}
+:root{--ob:#07090d;--ch:#0b1322;--iv:#F1EDE4;--au:#9b7b52;--st:#aab4c3;--mut:rgba(241,237,228,.8)}
+body{background:var(--ob);font-size:17px;line-height:1.7}
+h2{font-size:clamp(44px,7.2vw,116px);letter-spacing:-.015em;line-height:.95}
+.logo{letter-spacing:.34em}
+header{background:linear-gradient(rgba(7,9,13,.85),transparent)}
+.btn{border-color:rgba(241,237,228,.45)}.btn::before{background:var(--iv)}
+.heroart{background:radial-gradient(ellipse 45% 40% at 50% 62%,rgba(255,200,140,.2),transparent 70%),linear-gradient(#050810,#0e1730 62%,#05070c)}
+.hero .shade{background:linear-gradient(90deg,rgba(5,8,14,.8),rgba(5,8,14,.05) 62%),linear-gradient(transparent 55%,rgba(5,8,14,.9))}
+h1{font-size:clamp(50px,9.4vw,160px);line-height:.93}
+.sub{color:#c9b08a;font-size:clamp(20px,2vw,28px)}
+.pad{background:linear-gradient(90deg,rgba(7,9,13,.86),rgba(7,9,13,.55))}
+#firm{background:linear-gradient(90deg,rgba(7,9,13,.84),rgba(7,9,13,.2) 75%)}
+.pad.pa{background:linear-gradient(90deg,rgba(7,9,13,.92),rgba(7,9,13,.35) 55%,transparent)}
+.pad.cases{background:linear-gradient(rgba(7,9,13,.72),rgba(7,9,13,.5))}
+#attorneys,#reviews,#insights{background:linear-gradient(rgba(7,9,13,.93),rgba(11,19,34,.95))}
+.pad.final{background:linear-gradient(90deg,rgba(7,9,13,.88),rgba(7,9,13,.25))}
+.proc{background:linear-gradient(90deg,rgba(7,9,13,.0),rgba(7,9,13,.82) 52%)}.proc>svg,.proc>.ph{display:none}.proc>div{grid-column:2}
+.step p,.firm .l p,.pa .d p,.case p,
+.firm .l p{font-size:clamp(20px,1.7vw,25px)}
+.stage{border:0;height:70vh}.stage .ph{display:none}.stage figcaption{right:0;left:auto;bottom:0;font-size:clamp(26px,3vw,44px);text-shadow:0 2px 20px #000}
+.firm .a,.firm .b{filter:saturate(.7)}.firm .b{border-color:rgba(141,152,168,.5)}
+/* attorneys editorial */
+
+
+
+
+
+
+
+.case{border-top-color:rgba(141,152,168,.3)}.case b{color:#c9b08a}
+.case small{color:var(--st)}
+blockquote{font-size:clamp(26px,3.3vw,52px);text-shadow:none}cite{color:#c9b08a}
+.rev .ph{border-color:rgba(141,152,168,.4)}.rev .ph img{filter:grayscale(1) contrast(1.1) brightness(.9)}
+.ins .ph img{filter:grayscale(.7) contrast(1.1) brightness(.8)}.ins small{color:#c9b08a}
+.dots button{border-color:rgba(141,152,168,.5)}.dots button[aria-current=true],.dots button:hover{background:var(--iv);color:var(--ob)}
+input:focus,textarea:focus,select:focus{border-color:#c9b08a}
+footer{background:#05070b}footer h4{color:#c9b08a}
+@media(max-width:860px){.pad{background:rgba(7,9,13,.86)}.pad.pa{background:rgba(7,9,13,.72)}.proc{background:rgba(7,9,13,.7)}.proc>div{grid-column:1}.pad.cases{background:rgba(7,9,13,.8)}.stage{height:30vh}h1{font-size:clamp(46px,13vw,80px)}}
+@media(max-width:520px){}
+@media(min-width:861px){.firm h2{grid-column:1/8;grid-row:1}.firm .l{grid-column:1/5;grid-row:2;margin-top:4vh}.firm .a{grid-column:7/13;grid-row:1/3;margin-top:6vh;aspect-ratio:4/5}.firm .b{grid-column:5/8;grid-row:2;align-self:end;margin:0 0 -6vh;aspect-ratio:3/4;z-index:2}}
+.pa .stage{border:0}.stats{flex-wrap:wrap;gap:20px clamp(20px,2.4vw,40px)}.stats b{font-size:clamp(38px,4vw,62px)}.stats span{white-space:nowrap}
+
+
+/* refinement */
+.pad{padding:clamp(80px,12vh,150px) var(--px)}
+.ph img{filter:saturate(.85) contrast(1.05) brightness(1)}
+#firm{background:linear-gradient(90deg,rgba(7,9,13,.92),rgba(7,9,13,.4) 70%)}
+#practice{background:linear-gradient(90deg,rgba(7,9,13,.95),rgba(7,9,13,.4) 50%,transparent)}
+#attorneys,#insights{background:rgba(11,19,34,.97)}#reviews{background:rgba(7,9,13,.96)}
+#cases{background:linear-gradient(rgba(7,9,13,.8),rgba(7,9,13,.55))}
+#contact{background:linear-gradient(90deg,rgba(7,9,13,.92),rgba(7,9,13,.35))}
+.proc{background:linear-gradient(90deg,transparent,rgba(7,9,13,.88) 52%)}
+.veil{position:fixed;inset:0;z-index:40;background:#050810;opacity:0;pointer-events:none}
+.eb{font:500 11px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#c9b08a;margin-bottom:22px}
+.hero{justify-content:center;padding-top:10vh;padding-bottom:6vh}
+h1{font-size:clamp(46px,6.2vw,108px);max-width:7.4em}
+.hero .shade{background:linear-gradient(90deg,rgba(5,8,14,.9) 0,rgba(5,8,14,.6) 34%,rgba(5,8,14,0) 60%),linear-gradient(transparent 72%,rgba(5,8,14,.85))}
+.hero .meta{position:absolute!important;right:var(--px);bottom:38px;display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mut)}.hero .meta i{width:60px;height:1px;background:var(--iv);transform-origin:left;animation:sc 2.4s ease-in-out infinite}@keyframes sc{50%{transform:scaleX(.2)}}
+nav a{color:rgba(241,237,228,.78)}.menu{display:none;background:none;border:1px solid rgba(241,237,228,.4);color:var(--iv);font:500 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:10px 16px;cursor:pointer;position:relative;z-index:3}
+.pa ul{counter-reset:n}.pa li{counter-increment:n}.pa button{display:grid;grid-template-columns:auto 1fr auto;column-gap:22px;font-size:clamp(26px,3.4vw,54px);padding:20px 0}.pa button::before{content:counter(n,decimal-leading-zero);font:500 12px var(--sans);letter-spacing:.2em;color:#c9b08a}
+.pa .d a.lnk{display:block;margin-top:16px;font:500 12px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#c9b08a}.pa .d a.lnk:hover{color:var(--iv)}
+
+.case{cursor:pointer}.case .cd{grid-column:2/4;max-height:0;overflow:hidden;transition:max-height .6s;color:var(--mut)}.case[aria-expanded=true] .cd{max-height:420px}.case .cd p{margin:10px 0;font-size:15.5px}.case .cd strong{color:#c9b08a;font-weight:500}.case[aria-expanded=true]{background:linear-gradient(90deg,rgba(155,123,82,.14),transparent)}
+.hint{font-size:12px;color:var(--st);margin-top:22px;max-width:70ch}
+.ins a{cursor:pointer;display:block}.ins a:focus-visible{outline-offset:8px}
+.rprog{height:1px;background:rgba(141,152,168,.3);margin-top:30px;max-width:340px}.rprog i{display:block;height:100%;background:var(--iv);transform-origin:left;animation:rp 7s linear infinite}@keyframes rp{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}.fr{align-self:center}.fl{align-self:center}
+.next{list-style:none;counter-reset:s;margin-top:5vh;max-width:34em}.next li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;padding:16px 0;border-top:1px solid rgba(141,152,168,.3);color:var(--mut);font-size:15.5px}.next li::before{content:counter(s,decimal-leading-zero);color:#c9b08a;font:500 12px var(--sans);letter-spacing:.2em;padding-top:6px}.next strong{display:block;color:var(--iv);font:300 24px var(--serif)}
+.done{border:1px solid rgba(141,152,168,.35);padding:clamp(26px,4vw,52px);background:rgba(11,19,34,.9)}.done h3{font-size:clamp(32px,3.6vw,52px);margin-bottom:14px}.done p{color:var(--mut);margin-bottom:14px}.done .ref{font-size:12px;letter-spacing:.2em;text-transform:uppercase}.done .ref b{color:#c9b08a;font-weight:500}
+dialog{background:#0b1322;color:var(--iv);border:1px solid rgba(141,152,168,.35);padding:clamp(26px,4vw,56px);max-width:min(720px,92vw);width:100%;max-height:88vh;overflow:auto;margin:auto}dialog::backdrop{background:rgba(3,5,9,.82);backdrop-filter:blur(4px)}
+dialog h3{font-size:clamp(34px,4vw,56px);margin-bottom:14px}dialog p{color:var(--mut);margin-bottom:14px}dialog .foc{color:#c9b08a;font:italic 300 22px var(--serif)}dialog .fine2{font-size:12px;color:var(--st)}dialog .btn{margin-top:10px}dialog .x{position:absolute;top:12px;right:16px;background:none;border:0;color:var(--iv);font-size:30px;cursor:pointer}
+@media(max-width:860px){.menu{display:block}nav{position:fixed;inset:0;z-index:2;background:rgba(7,9,13,.98);flex-direction:column;justify-content:center;align-items:center;gap:28px;font-size:18px;opacity:0;pointer-events:none;transition:opacity .4s}body.nav nav{opacity:1;pointer-events:auto}nav a{display:block!important;color:var(--iv)}.hero{justify-content:flex-end;padding-bottom:90px}h1{font-size:clamp(42px,12vw,70px);max-width:none}.hero .shade{background:linear-gradient(transparent 25%,rgba(5,8,14,.92) 75%)}.hero .meta{display:none}.two{grid-template-columns:1fr}.pa button{grid-template-columns:auto 1fr auto;font-size:clamp(24px,7vw,36px)}.case .cd{grid-column:1}#practice,#cases,#contact{background:rgba(7,9,13,.92)}.pad{padding:76px var(--px)}}
+body.nav .demo{display:none}.logo{position:relative;z-index:3}
+[hidden]{display:none!important}
+
+/* v6 */
+:root{--sans:"Inter","Helvetica Neue",Arial,sans-serif}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--iv);color:var(--ob);padding:10px 16px;font:500 12px var(--sans);transition:top .2s}.skip:focus{top:12px}
+.hdtel{font:500 13px var(--sans);letter-spacing:.14em;color:var(--iv);margin-left:28px;white-space:nowrap}.hdtel:hover{color:#c9b08a}
+header{gap:20px}nav{margin-left:auto}
+.callbar{display:none}
+.ctas{display:flex;flex-wrap:wrap;align-items:center;gap:22px 34px}
+.tel{display:block;font:300 clamp(24px,2.4vw,34px)/1.1 var(--serif);color:var(--iv)}.tel span{display:block;font:500 10px var(--sans);letter-spacing:.26em;text-transform:uppercase;color:#c9b08a;margin-bottom:6px}.tel:hover{color:#c9b08a}
+.hero .vig{position:fixed!important;inset:0;z-index:1!important;pointer-events:none;background:radial-gradient(ellipse at 62% 48%,transparent 40%,rgba(4,6,10,.62))}
+.trust{background:#07090d;border-top:1px solid rgba(141,152,168,.22);border-bottom:1px solid rgba(141,152,168,.22);z-index:3}.trust ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);max-width:1400px;margin:auto}.trust li{padding:26px var(--px);font-size:13px;color:var(--mut);border-left:1px solid rgba(141,152,168,.18)}.trust li:first-child{border-left:0}.trust b{display:block;font:300 24px var(--serif);color:var(--iv);margin-bottom:2px}
+.cases .top{grid-template-columns:1fr 1fr}.lede{color:var(--mut);font:300 clamp(20px,1.7vw,24px)/1.5 var(--serif);max-width:30em}
+.art{aspect-ratio:5/3;margin-bottom:20px;background:linear-gradient(160deg,#16213a,#0a0f1a),repeating-linear-gradient(0deg,transparent 0 29px,rgba(141,152,168,.08) 30px);border:1px solid rgba(141,152,168,.25);display:grid;place-items:center;transition:border-color .5s}.art svg{width:78%;stroke:#9b7b52;stroke-width:1.5;fill:none}.ins a:hover .art{border-color:#9b7b52}
+.rev .ph{aspect-ratio:4/5;max-width:260px}
+.faq{background:#07090d}.qa{margin-top:6vh;max-width:900px;border-top:1px solid rgba(141,152,168,.28)}.qa details{border-bottom:1px solid rgba(141,152,168,.28)}.qa summary{list-style:none;cursor:pointer;padding:24px 0;font:300 clamp(24px,2.6vw,36px)/1.15 var(--serif);display:flex;justify-content:space-between;gap:20px}.qa summary::-webkit-details-marker{display:none}.qa summary::after{content:"+";color:#c9b08a;transition:transform .4s}.qa details[open] summary::after{transform:rotate(45deg)}.qa details p{color:var(--mut);padding:0 0 26px;max-width:62ch}.qa summary:focus-visible{outline:2px solid #c9b08a}
+@media(max-width:860px){.hdtel{display:none}.callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;justify-content:center;align-items:center;height:54px;background:#f1ede4;color:#07090d;font:500 13px var(--sans);letter-spacing:.08em}.demo{bottom:62px}footer{padding-bottom:90px}.trust ul{grid-template-columns:1fr 1fr}.trust li{padding:18px var(--px);border-top:1px solid rgba(141,152,168,.18)}
+.cases .top{grid-template-columns:1fr}}
+
+/* attorney chapters */
+#attorneys{overflow-x:clip}.att-lede{margin-top:22px}
+.showcase{display:grid;grid-template-columns:minmax(230px,290px) minmax(0,1fr);gap:clamp(32px,5vw,88px);margin-top:9vh;align-items:start}
+.roster{position:sticky;top:14vh;display:flex;flex-direction:column;padding-left:24px}.roster::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(141,152,168,.28)}
+.roster .mark{position:absolute;left:-1px;top:0;width:3px;height:0;background:#9b7b52;transition:transform .8s cubic-bezier(.2,.8,.2,1),height .8s cubic-bezier(.2,.8,.2,1)}
+.roster button{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:34px 1fr;align-items:baseline;padding:17px 0;color:rgba(241,237,228,.45);transition:color .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.roster button:hover,.roster button:focus-visible,.roster button[aria-current]{color:var(--iv)}.roster button:hover,.roster button[aria-current]{transform:translateX(8px)}.roster button:focus-visible{outline:2px solid #c9b08a;outline-offset:4px}
+.roster .rn{font:italic 300 18px var(--serif);color:#9b7b52}.roster b{display:block;font:300 clamp(24px,2.1vw,32px)/1.05 var(--serif)}.roster small{display:block;font:500 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;margin-top:7px;color:var(--st)}
+.feature{min-width:0;scroll-margin-top:90px}
+.story{position:relative;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);gap:0 clamp(28px,3.4vw,56px);align-items:start}
+.shot{position:relative;margin:0}.shot::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid rgba(155,123,82,.55);z-index:0;pointer-events:none}
+.frame{position:relative;aspect-ratio:4/5;overflow:hidden;z-index:1;background:radial-gradient(120% 80% at 25% 0,#1d2d4d,#0a0f1a 72%)}
+.frame img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15) brightness(.9);transform:scale(1.06)}
+.frame::before{content:"";position:absolute;inset:0;z-index:2;background:#102042;mix-blend-mode:color;opacity:.62;pointer-events:none}
+.frame::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at 42% 36%,transparent 38%,rgba(5,8,14,.72)),linear-gradient(transparent 52%,rgba(5,8,14,.92))}
+.ini{position:absolute;inset:0;z-index:0;display:grid;place-items:center;font:300 clamp(90px,12vw,190px) var(--serif);color:rgba(241,237,228,.09);letter-spacing:.04em}
+.num{position:absolute;right:-.12em;top:-.3em;z-index:0;font:300 clamp(110px,15vw,240px)/1 var(--serif);color:transparent;-webkit-text-stroke:1px rgba(155,123,82,.5);pointer-events:none}
+.shot figcaption{position:absolute;left:20px;bottom:18px;z-index:4;font:500 9px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(241,237,228,.72)}
+.copy{padding-top:clamp(18px,5vh,64px);position:relative;z-index:2}
+.kick{font:500 11px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#c9b08a}.kick span{display:block;margin-top:7px;color:var(--st);letter-spacing:.16em}
+.nm{font:300 clamp(50px,5.6vw,92px)/.92 var(--serif);margin:20px 0 28px -16%;position:relative;z-index:4;text-shadow:0 4px 44px #000}.nm span{display:block;overflow:hidden;padding-bottom:.06em}.nm em{display:block;font-style:normal}
+.pq{font:italic 300 clamp(21px,1.9vw,28px)/1.3 var(--serif);color:#c9b08a;margin:0 0 28px;padding-left:20px;border-left:2px solid #9b7b52;min-height:0;text-shadow:none}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}.cols h4{font:500 10px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--st);margin-bottom:8px}.cols p{font-size:15px;line-height:1.6;color:var(--mut)}
+.lab{font:500 10px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--st);margin:28px 0 8px}.exp{list-style:none;border-top:1px solid rgba(141,152,168,.25)}.exp li{position:relative;padding:11px 0 11px 26px;border-bottom:1px solid rgba(141,152,168,.25);font-size:14.5px;color:var(--mut)}.exp li::before{content:"";position:absolute;left:0;top:1.45em;width:12px;height:1px;background:#9b7b52}
+.cred{font-size:12.5px;color:var(--st);margin:16px 0 26px}.act{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}.pn{display:flex;gap:8px}.pn button{width:46px;height:46px;border:1px solid rgba(141,152,168,.45);background:none;color:var(--iv);cursor:pointer;font-size:18px;transition:background .4s,color .4s}.pn button:hover,.pn button:focus-visible{background:var(--iv);color:var(--ob)}.fine2{font-size:12px;color:var(--st);margin-top:18px}
+@media(prefers-reduced-motion:no-preference){.story{animation:rise .6s both}}
+.hn{display:none}
+@media(max-width:860px){.demo{display:none}.hn{display:block;margin-top:18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--st)}.hero{padding-bottom:84px}
+.showcase{grid-template-columns:1fr;gap:26px;margin-top:5vh}.roster{position:static;display:grid;grid-template-columns:1fr 1fr;padding:0;column-gap:18px}.roster::before,.roster .mark{display:none}
+.roster button{grid-template-columns:28px 1fr;padding:13px 0;border-bottom:1px solid rgba(141,152,168,.28);transform:none!important}.roster button[aria-current]{border-bottom:2px solid #9b7b52}.roster small{display:none}.roster b{font-size:19px}
+.story{grid-template-columns:1fr}.frame{aspect-ratio:4/5;max-height:70svh;width:100%}.shot::before{inset:10px -8px -10px 8px}.num{right:6px;top:-.42em;font-size:110px}
+.nm{margin:-84px 0 20px 14px;font-size:clamp(48px,14vw,68px)}.copy{padding-top:0}.kick{margin-top:22px}.nm{margin-top:14px}.cols{grid-template-columns:1fr;gap:20px}.act{flex-direction:column;align-items:stretch}.act .btn{text-align:center}.pn{justify-content:space-between}.pn button{flex:1}}
+.num{z-index:5;top:-.5em;right:-.04em}
+@media(max-width:860px){.num{right:8px;top:-.34em;font-size:104px}}
+
+/* HMR repair pass: legibility, stillness, interaction clarity */
+.gl-hold{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0}
+#gl{will-change:opacity}
+.hero,.hero h1,.hero .sub{isolation:isolate}
+#firm,#attorneys,#reviews,#insights,#cases,#faq,#contact{isolation:isolate}
+#firm{background:linear-gradient(95deg,#080d17 0%,rgba(8,13,23,.98) 49%,rgba(8,13,23,.88) 100%)!important}
+#attorneys,#insights{background:#0b1423!important}#reviews{background:#08101d!important}
+#cases,#faq{background:#0a111e!important}
+#contact{background:linear-gradient(115deg,#0b1424,#070b14)!important}
+#contact::before{content:'';position:absolute;right:-12%;top:-20%;width:min(64vw,680px);height:90%;border-radius:50%;background:radial-gradient(ellipse,rgba(91,110,137,.13),transparent 70%);pointer-events:none}
+#contact input,#contact textarea,#contact select{background:rgba(5,10,20,.38)!important;color:#f1ede4!important;-webkit-text-fill-color:#f1ede4!important;border:1px solid rgba(231,225,214,.45)!important;border-radius:2px!important;padding:13px 14px!important;font:400 18px/1.4 var(--sans)!important;outline-offset:2px}
+#contact input:focus,#contact textarea:focus,#contact select:focus{border-color:#d8b88c!important;box-shadow:0 0 0 3px rgba(216,184,140,.10)!important}
+#contact input:-webkit-autofill{-webkit-box-shadow:0 0 0 100px #111d2b inset!important;-webkit-text-fill-color:#f1ede4!important}
+#contact label:not(.chk){color:#f1ede4;font-weight:500;font-size:12px;letter-spacing:.13em;margin-bottom:9px}
+#contact .chk input{width:19px;height:19px;padding:0!important;flex:none}
+#contact .fl,#contact .fr{position:relative;z-index:3}#contact .fr{padding:clamp(16px,2vw,28px);background:rgba(5,11,21,.78);border:1px solid rgba(216,184,140,.18);border-radius:3px}
+#contact .btn{background:#e9e4da;color:#07090d;border:1px solid #e9e4da;font-weight:600}#contact .btn:hover{color:#fff}
+#contact h2{font-size:clamp(47px,6vw,94px);line-height:.98}
+#contact .next strong{font-size:22px}#contact .next li{font-size:14px;line-height:1.48}
+#firm .l p{font:400 clamp(19px,1.55vw,23px)/1.5 var(--serif);max-width:35ch}
+#firm .stats b{color:#d2b48a}#firm .stats span{white-space:normal}
+#firm .editorial-photo{background:radial-gradient(circle at 20% 15%,#293d54,#070f1b 72%);border:1px solid rgba(190,168,134,.25)}
+.editorial-photo .media-fallback,.testimonial-portrait .media-fallback{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(18px,3vw,48px);background:linear-gradient(145deg,rgba(25,41,63,.7),rgba(8,14,25,.95));color:#eee9e0}
+.media-fallback i{font:500 11px var(--sans);letter-spacing:.28em;text-transform:uppercase;color:#bfa783;font-style:normal}.media-fallback strong{font:300 clamp(35px,4vw,66px)/1.02 var(--serif);font-weight:300}
+.editorial-photo img,.testimonial-portrait img{z-index:2;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.editorial-photo img[hidden],.testimonial-portrait img[hidden],.frame img[hidden]{display:none!important}
+#firm .ph::after{z-index:3}
+#practice{background:linear-gradient(90deg,#08101d 0%,rgba(8,16,29,.99) 47%,rgba(8,16,29,.5) 100%)!important}
+#practice .stage{min-height:430px;transform:none!important;transition:none!important}#practice .stage figcaption{font:italic 300 clamp(24px,2.8vw,36px) var(--serif);bottom:12px;color:#e8ddcb}
+#practice button{color:#f2e9dc}#practice button::after{display:none}
+#practice .d p{font:400 16px/1.65 var(--sans);color:#cfd5df;max-width:53ch}#practice .pa button{padding:22px 0}
+#attorneys .att-lede{color:#cfd4db;font:400 17px/1.55 var(--sans);max-width:66ch;margin:22px 0 0}
+#attorneys .att-lede strong{display:inline-block;color:#d9b98d;white-space:nowrap;font-weight:500}
+#attorneys .roster button{position:relative;width:100%;padding-right:24px}#attorneys .roster button::after{content:'↗';position:absolute;right:0;top:50%;font:20px var(--serif);color:#bfaa8b;transform:translateY(-50%);opacity:.5;transition:opacity .2s,transform .2s}
+#attorneys .roster button:hover::after,#attorneys .roster button[aria-current]::after{opacity:1;transform:translate(3px,-50%)}
+#attorneys .roster button[aria-current] b{color:#fff}#attorneys .roster b{color:rgba(241,237,228,.8)}
+#attorneys .frame img{filter:grayscale(.75) contrast(1.06) brightness(.97)}
+#attorneys .nm{font-size:clamp(47px,5vw,82px)}#attorneys .cols p{font-size:15px;line-height:1.55}
+#process{background:linear-gradient(90deg,#080e19,#101b2d)!important;grid-template-columns:1fr!important;min-height:auto!important;display:block!important}
+#process>div{grid-column:auto!important;width:100%}#process .steps{max-width:1200px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,3vw,40px)}
+#process .step{padding-top:23px;border-top:1px solid rgba(180,169,149,.45)}#process .step .n{font-size:70px;line-height:1}#process .step h3{font-size:clamp(26px,2.8vw,39px)}#process .step p{font:400 15px/1.7 var(--sans);color:#cbd2da}
+#process .bar{display:none}#process>svg{display:none}
+#cases .case{position:relative;padding-right:125px;cursor:pointer}
+#cases .case::after{content:'VIEW DETAILS ↗';position:absolute;top:34px;right:0;font:500 10px var(--sans);color:#d6ba92;letter-spacing:.13em}
+#cases .case[aria-expanded=true]::after{content:'CLOSE −'}#cases .case h3{line-height:1.15}#cases .top .lede{max-width:41ch}
+#reviews .testimonial-portrait{max-width:330px;aspect-ratio:4/5}#reviews blockquote{font:italic 300 clamp(28px,3.3vw,46px)/1.23 var(--serif);min-height:0;max-width:23ch;margin-bottom:20px}
+#reviews cite{font-size:11px;line-height:1.5;letter-spacing:.12em}
+#reviews .review-fallback strong{font-size:clamp(35px,3.2vw,55px)}#reviews .review-fallback span{font:500 10px var(--sans);letter-spacing:.2em;color:#bfa783}
+#insights .ins h3{line-height:1.17}#insights .art{position:relative;aspect-ratio:1.6;overflow:hidden;display:block;background:radial-gradient(circle at 40% 15%,#2b405c,#101a2a 53%,#060b13);border:1px solid rgba(175,155,124,.38);padding:24px}
+#insights .art:before{content:'';position:absolute;inset:12px;border:1px solid rgba(184,168,142,.19);pointer-events:none}
+#insights .art-label,#insights .art-bottom{font:500 11px var(--sans);letter-spacing:.2em;color:#d3b996;position:absolute;left:24px;top:24px}
+#insights .art-bottom{top:auto;bottom:24px;font-size:9px}
+#insights .art-numeral{position:absolute;right:14px;bottom:-.22em;font:italic 300 clamp(125px,16vw,240px)/1 var(--serif);color:rgba(215,196,169,.15)}
+#insights .art-02{background:radial-gradient(circle at 55% 5%,#38435a,#0e1727 60%,#090e19)}#insights .art-03{background:radial-gradient(circle at 75% 12%,#343c47,#0c1625 65%,#060d17)}
+#insights a:focus-visible,#cases .case:focus-visible{outline:2px solid #dbc39a;outline-offset:4px}
+#insights h3{font-size:clamp(25px,2.2vw,34px)}#insights p{line-height:1.6;font-size:15px}
+#faq .qa summary{line-height:1.28}#faq .qa details p{font-size:16px;line-height:1.65}
+@media(max-width:1100px){#process .steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:860px){#firm .b{display:none}#firm .a{aspect-ratio:4/3;max-height:380px}#process .steps{grid-template-columns:1fr 1fr}#practice .stage{min-height:300px;height:38vh;max-height:380px}#contact .fr{padding:24px 18px}#cases .case{padding-right:0}#cases .case::after{position:static;grid-column:1;display:block;margin-top:12px}#reviews blockquote{max-width:none}}
+@media(max-width:520px){#process .steps{grid-template-columns:1fr}#process .step .n{font-size:60px}#contact h2{font-size:clamp(45px,12vw,70px)}#attorneys .roster button::after{font-size:15px}#reviews .testimonial-portrait{max-width:235px}#practice .stage{order:0;height:260px;min-height:260px}}
+@media(prefers-reduced-motion:reduce){#gl,.gl-hold{display:none!important}#process .step{opacity:1!important}#insights *{animation:none!important}}
+
+
+/* Final editorial fallback and global WebGL mounting */
+#gl,.gl-hold{position:fixed!important;inset:0!important;width:100%;height:100%;pointer-events:none;z-index:0!important}
+section[id]{scroll-margin-top:84px}
+#firm .media-fallback strong{font-size:clamp(26px,2.45vw,45px);overflow-wrap:normal;letter-spacing:-.015em}
+#firm .b .media-fallback strong{font-size:clamp(22px,2.3vw,36px)}
+.case-still{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(22px,4vw,48px);background:radial-gradient(ellipse at 40% 20%,rgba(37,55,74,.85),rgba(5,10,19,.97) 80%);border:1px solid rgba(201,176,138,.3);color:#f1ede4}
+.case-still::before{content:'';position:absolute;inset:16px;border:1px solid rgba(201,176,138,.22);pointer-events:none}
+.case-still span,.case-still em{font:500 10px var(--sans);color:#d0b690;letter-spacing:.2em;font-style:normal}
+.case-still strong{font:300 clamp(32px,3vw,56px)/.95 var(--serif);font-weight:300}
+.has-webgl .case-still{display:none}
+#contact input::placeholder,#contact textarea::placeholder{color:#cbd2da}
+#contact .fl h2{max-width:10ch}
+@media(max-width:860px){#contact .fl h2{max-width:none}#firm .editorial-photo .media-fallback strong{font-size:clamp(32px,8vw,55px)}}
+
+/* Single-photo firm composition: no double empty picture squares */
+#firm .a{grid-column:7/13!important;grid-row:1/3!important;margin-top:4vh!important;aspect-ratio:5/4!important;max-height:550px;width:100%}
+#firm .a .media-fallback{justify-content:center;align-items:center;gap:34px;padding:clamp(24px,5vw,70px);background:radial-gradient(ellipse at 45% 15%,#2a3b52,#0b1220 67%,#070d18)}
+#firm .a .media-fallback i{align-self:flex-start}
+#firm .a .media-fallback strong{text-align:center;font-size:clamp(38px,4.2vw,75px);line-height:1.07;letter-spacing:-.035em;color:#e6e1d7}
+#firm .a .media-fallback:after{content:'HALE · MARCHETTI · REYES';align-self:flex-end;font:500 10px var(--sans);letter-spacing:.18em;color:#d1b58e}
+@media(max-width:860px){#firm .a{grid-column:1!important;grid-row:auto!important;aspect-ratio:5/4!important;margin-top:24px!important}}
+
+/* V2 cinematography: dark ink, architectural focus, strict typography boundaries. */
+.hero{position:relative;justify-content:center!important;padding:clamp(112px,14vh,180px) var(--px) clamp(48px,9vh,94px)!important;min-height:0!important;height:100svh!important;isolation:isolate}
+.hero .shade{z-index:1!important;background:linear-gradient(90deg,rgba(3,6,12,.98) 0%,rgba(4,8,16,.96) 20%,rgba(4,8,17,.85) 40%,rgba(4,7,14,.37) 67%,rgba(4,8,15,.12) 100%),linear-gradient(0deg,rgba(3,6,12,.95),transparent 28%,transparent 70%,rgba(3,6,12,.35))!important}
+.hero .vig{opacity:.45!important}
+.hero h1{font:300 clamp(52px,5.25vw,88px)/.98 var(--serif)!important;letter-spacing:-.026em!important;max-width:min(760px,59vw)!important;text-wrap:balance;position:relative!important;text-shadow:0 5px 38px rgba(0,0,0,.68)!important;margin:0!important}
+.hero h1 span{overflow:visible!important;padding-bottom:.10em!important}
+.hero .sub{font:italic 300 clamp(21px,1.85vw,29px)/1.3 var(--serif)!important;margin:20px 0 29px!important;max-width:640px;color:#dbbd92!important}
+.hero .ctas{max-width:700px;gap:16px 26px!important}
+.hero .btn{padding:18px 24px!important;border-color:#d4b68b!important;background:rgba(5,11,22,.55)!important;color:#f6f0e6!important;font-size:11px!important;line-height:1.4!important;letter-spacing:.14em!important}
+.hero .btn:hover,.hero .btn:focus-visible{color:#0b0f17!important}
+.hero .tel{font-size:clamp(20px,2.1vw,28px)!important}
+.hero .meta{z-index:3!important}
+.heroart{background:radial-gradient(ellipse at 73% 52%,rgba(28,43,60,.55),transparent 58%),linear-gradient(#03060b,#0b1424 55%,#03060b)!important}
+.heroart svg{opacity:.37!important}
+/* This photo is an actual architectural reference, not a simulated project location. */
+#firm .editorial-photo{overflow:hidden;background:#0b1424!important}
+#firm .editorial-photo img{filter:saturate(.48) contrast(1.15) brightness(.73)!important;object-position:center}
+#firm .editorial-photo .media-fallback{background:linear-gradient(120deg,#182338,#0a1222)!important}
+#firm .editorial-photo .media-fallback strong{line-height:1.06!important}
+/* Deliberately reduce all content overlay conflicts, even if 3D is bright. */
+#firm,#attorneys,#reviews,#insights,#cases,#faq,#contact{position:relative;z-index:2}
+#contact{background:#08101d!important}
+/* Avoid all clipping at the small artifact-preview sizes. */
+@media(max-width:1100px){
+ .hero h1{font-size:clamp(45px,6vw,70px)!important;max-width:min(660px,78vw)!important}
+ .hero .sub{max-width:80vw}
+}
+@media(max-width:860px){
+ .hero{min-height:560px!important;height:max(100svh,560px)!important;padding:115px var(--px) 82px!important;justify-content:center!important}
+ .hero .shade{background:linear-gradient(90deg,rgba(3,6,12,.96),rgba(3,6,12,.73) 52%,rgba(3,6,12,.3)),linear-gradient(0deg,rgba(3,6,12,.94),transparent 45%)!important}
+ .hero h1{font-size:clamp(42px,7.1vw,62px)!important;max-width:650px!important;line-height:1.01!important}
+ .hero .sub{font-size:clamp(18px,3vw,23px)!important;margin:17px 0 22px!important}
+ .hero .ctas{align-items:flex-start}
+ .hero .meta{display:none}
+}
+@media(max-width:520px){
+ .hero{min-height:630px!important;height:max(100svh,630px)!important;padding-top:114px!important;padding-bottom:105px!important}
+ .hero h1{font-size:clamp(44px,10vw,59px)!important;max-width:95vw!important}
+ .hero .tel{font-size:21px!important}
+ .hero .ctas{gap:18px!important}
+ .hero .btn{width:100%;text-align:center}
+}
+@media(max-height:600px) and (min-width:520px){
+ .hero{min-height:520px!important;height:520px!important;padding-top:94px!important;padding-bottom:38px!important;justify-content:center!important}
+ .hero h1{font-size:clamp(41px,5vw,55px)!important;max-width:650px!important}
+ .hero .sub{margin:12px 0 20px!important}
+}
+@media(prefers-reduced-motion:reduce){.hero .meta i{animation:none!important}}
+
+
+/* Real asset-backed hero still: derived from the owner's original WebGL render, used only when live 3D is unavailable. */
+.heroart{overflow:hidden!important}
+.heroart .hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.9!important;filter:contrast(1.13) brightness(.9)}
+.heroart svg{opacity:.08!important}
+@media(max-width:860px){.heroart .hero-poster{object-position:62% center;opacity:.77!important}}
+
+
+/* v7: consolidated fixes (no stacked effects) */
+.rprog{display:none}.rev{grid-template-columns:1fr;min-height:0}
+#reviews blockquote{max-width:30ch}
+.dots button{width:auto;min-width:46px;padding:0 16px}
+.firm-panel{align-self:center;padding:clamp(28px,4vw,56px);border:1px solid rgba(201,176,138,.35);background:linear-gradient(145deg,#12203a,#0a1222)}
+.firm-panel ol{list-style:none;margin-top:6px}.firm-panel li{padding:20px 0;border-top:1px solid rgba(170,180,195,.25);color:#d5dae2;font-size:16px}
+.firm-panel li:first-child{border-top:0}.firm-panel b{display:block;font:300 clamp(26px,2.6vw,36px)/1.1 var(--serif);color:#f1ede4;margin-bottom:6px}
+#insights .ins a{border-top:1px solid rgba(201,176,138,.5);padding-top:22px;display:block}
+#insights .ins small{color:#d6ba92}#insights .ins h3{font-size:clamp(28px,2.6vw,38px)}
+.ini{color:rgba(201,176,138,.35)!important}
+nav a.k{border:1px solid #d4b68b;padding:10px 18px;color:#f1ede4}nav a.k:hover{background:#f1ede4;color:#07090d}
+.hdtel{color:#f1ede4}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid #e3c79c;outline-offset:3px}
+#contact select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#d8b88c 50%),linear-gradient(135deg,#d8b88c 50%,transparent 50%);background-position:calc(100% - 20px) 55%,calc(100% - 14px) 55%;background-size:6px 6px;background-repeat:no-repeat;padding-right:38px!important}
+#contact select option{background:#0b1322;color:#f1ede4}
+#contact input:focus-visible,#contact textarea:focus-visible,#contact select:focus-visible{outline:2px solid #e3c79c;outline-offset:2px}
+.err{color:#ffc2a6}
+@media(prefers-reduced-motion:reduce){.grain{display:none}}
+#contact .fl h2{max-width:13ch!important}.ins article:nth-of-type(2){margin-top:0!important}
+.elev{display:block;width:100%;height:auto;margin:0 0 26px;opacity:.9}.firm-panel{background:radial-gradient(ellipse at 50% 0,#1b2c4a,#0a1222 70%)}#insights .ins article:first-of-type h3{font-size:clamp(34px,3.4vw,52px)}
+@media(min-width:1800px){body{font-size:19px}:root{--px:max(72px,calc((100vw - 1700px)/2))}.hero h1{font-size:clamp(88px,4.4vw,128px)!important;max-width:min(1000px,52vw)!important}.hero .sub{font-size:clamp(28px,1.5vw,38px)!important;max-width:900px}.hero .btn{font-size:13px!important;padding:22px 30px!important}.hero .tel{font-size:36px!important}h2{font-size:clamp(100px,5.4vw,150px)}.firm-panel li,.cols p{font-size:18px}.trust li{padding:26px 36px}.trust ul{max-width:1700px}}
+@media(min-width:861px) and (max-width:1100px){.showcase{grid-template-columns:210px minmax(0,1fr)}.story{grid-template-columns:1fr}.nm{margin-left:0}.trust ul{grid-template-columns:1fr 1fr}.trust li:nth-child(3){border-left:0}}
+@media(max-width:380px){.hero{padding-top:132px!important}.hero h1{font-size:40px!important}.btn{padding:18px 16px;letter-spacing:.14em}h2{font-size:clamp(38px,12vw,52px)}#firm .stats span{white-space:normal}}
+header{background:rgba(7,9,13,.9)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,176,138,.18)}
+.heroart{background:radial-gradient(ellipse at 72% 38%,rgba(46,98,200,.45),transparent 62%),linear-gradient(#050d22,#0c2354 60%,#050b1c)!important;animation:kb 32s ease-in-out infinite alternate}
+#firm{background:linear-gradient(95deg,#07122a,#0b2250 55%,#0a1c42)!important}#practice{background:linear-gradient(90deg,#081735 0%,rgba(8,23,53,.98) 47%,rgba(8,23,53,.45) 100%)!important}
+#attorneys,#insights{background:linear-gradient(180deg,#0a1a38,#0d2350)!important}#reviews{background:#081431!important}#cases,#faq{background:#0a1a3a!important}#process{background:linear-gradient(90deg,#071430,#0e2a5c)!important}#contact{background:linear-gradient(115deg,#0c2250,#071230)!important}
+.hero>.aurora{position:absolute!important;inset:-20%;z-index:1;pointer-events:none;mix-blend-mode:screen;opacity:.28;background:radial-gradient(40% 35% at 25% 70%,rgba(60,110,230,.38),transparent 70%),radial-gradient(35% 30% at 75% 30%,rgba(120,170,255,.3),transparent 70%),radial-gradient(30% 25% at 55% 55%,rgba(201,176,138,.14),transparent 70%);animation:aur 26s ease-in-out infinite alternate}
+.hero>svg.parl{position:absolute!important;left:0;right:0;bottom:0;width:100%;height:46%;z-index:1;pointer-events:none;opacity:.92;will-change:transform}
+.parl .lit{opacity:.55;animation:lit 7s ease-in-out infinite alternate}
+.hero::after{content:'';position:absolute;top:0;bottom:0;width:28%;left:-40%;z-index:1;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(170,200,255,.08),transparent);animation:swp 12s ease-in-out infinite}
+@keyframes kb{to{transform:scale(1.07)}}@keyframes aur{to{transform:translate3d(5%,-4%,0) rotate(4deg)}}@keyframes lit{to{opacity:.9}}@keyframes swp{0%{left:-40%}60%,100%{left:120%}}
+.js-rv .rv{opacity:0;transform:translateY(36px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}.js-rv .rv.in{opacity:1;transform:none}
+@media(max-width:860px){.hero>svg.parl{height:34%}}
+@media(prefers-reduced-motion:reduce){.heroart,.hero>.aurora,.parl .lit,.hero::after{animation:none!important}.js-rv .rv{opacity:1!important;transform:none!important}}
+</style></head><body><a class="skip" href="#top">Skip to content</a>
+<div id="load" role="status">HALE · MARCHETTI · REYES</div><div class="grain" aria-hidden="true"></div>
+<div class="demo">Concept demo · all people, cases and reviews are fictional</div>
+<canvas id="gl" aria-hidden="true"></canvas>
+<header><a href="#top" class="logo">HMR</a><button class="menu" aria-expanded="false" aria-controls="nav">Menu</button><nav id="nav" aria-label="Primary"><a href="#firm">Firm</a><a href="#practice">Practice</a><a href="#attorneys">Attorneys</a><a href="#cases">Results</a><a href="#insights">Insights</a><a href="#contact" class="k">Consult</a></nav><a class="hdtel" href="tel:+15550100199">(555) 010-0199</a></header><a class="callbar" href="tel:+15550100199">Call a defense attorney · (555) 010-0199</a><div class="veil" id="veil" aria-hidden="true"></div>
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+ <div class="heroart" aria-hidden="true"><img class="hero-poster" src="data:image/webp;base64,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" alt=""><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="hg" x1="0" x2="1"><stop offset="0" stop-color="#05070c"/><stop offset=".5" stop-color="#2b3447"/><stop offset="1" stop-color="#090807"/></linearGradient></defs><g fill="url(#hg)"><rect x="40" y="0" width="150" height="900"/><rect x="250" y="0" width="120" height="900"/><rect x="430" y="40" width="90" height="860"/><rect x="570" y="120" width="60" height="700"/><rect x="1410" y="0" width="150" height="900"/><rect x="1230" y="0" width="120" height="900"/><rect x="1080" y="40" width="90" height="860"/><rect x="970" y="120" width="60" height="700"/></g><rect y="760" width="1600" height="140" fill="#050505" opacity=".7"/></svg></div>
+ <div class="shade"></div><div class="vig"></div><div class="aurora" aria-hidden="true"></div>
+ <h1 id="h1"><span><em style="display:block;font-style:normal">When everything</em></span><span><em style="display:block;font-style:normal">is on the line.</em></span></h1>
+ <p class="sub">Your freedom. Your reputation. Your future.</p>
+ <div class="ctas"><a class="btn" href="#contact">Request a confidential consultation</a><a class="tel" href="tel:+15550100199"><span>Or call, any hour</span>(555) 010-0199</a></div><p class="hn">Concept demonstration · fictional firm</p><div class="meta" aria-hidden="true">Scroll<i></i></div>
+</section>
+<section class="trust" aria-label="At a glance"><ul><li><b>Confidential</b>from the first call</li><li><b>State &amp; federal</b>court representation</li><li><b>Attorney-led</b>from day one</li><li><b>Fixed-fee options</b>discussed up front · sample</li></ul></section>
+
+<section class="pad" id="firm" aria-labelledby="fh"><div class="firm">
+ <h2 id="fh"><span>The defense</span><span>you deserve.</span></h2>
+ <div class="l"><p>Early decisions can shape your entire case. We help you understand your rights, assess the evidence, and act before important options disappear.</p><p>Our approach starts with the facts: the stop, the search, the statements, and the witnesses. Every detail deserves scrutiny.</p>
+ <div class="stats"><div><b>20+</b><span>years combined · sample</span></div><div><b>3</b><span>practice teams · sample</span></div><div><b>24/7</b><span>availability · sample</span></div></div></div>
+ <aside class="a firm-panel" aria-labelledby="fp"><svg class="elev" viewBox="0 0 400 190" fill="none" stroke="url(#sg)" stroke-width="1" aria-hidden="true"><defs><linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="#e3c79c"/><stop offset="1" stop-color="#7a6040"/></linearGradient><g id="cl"><path d="M-8 62H8M-6 66H6"/><path d="M-5 66V142M-2 66V142M2 66V142M5 66V142"/><path d="M-8 142H8M-9 146H9"/></g></defs><path d="M16 56L200 8L384 56ZM44 48L200 12L356 48"/><path d="M16 56H384V62H16ZM24 62H376"/><use href="#cl" x="50.0"/><use href="#cl" x="93.4"/><use href="#cl" x="136.8"/><use href="#cl" x="180.2"/><use href="#cl" x="223.6"/><use href="#cl" x="267.0"/><use href="#cl" x="310.4"/><use href="#cl" x="353.8"/><path d="M24 150H376M16 156H384M8 162H392M0 168H400M-0 174H400"/></svg><p class="eb" id="fp">What to expect</p><ol><li><b>We listen first.</b>You explain what is happening, in your own words.</li><li><b>We explain the process.</b>Charges, deadlines and what typically comes next.</li><li><b>You decide.</b>Options and fees are laid out before you commit to anything.</li></ol></aside>
+ 
+</div></section>
+
+<section class="pad pa" id="practice" aria-labelledby="ph2"><div>
+ <h2 id="ph2">Practice areas</h2><ul>
+ <li><button aria-expanded="false" aria-controls="d0">Federal Criminal Defense<i>+</i></button><div class="d" id="d0"><p>Grand jury subpoenas, indictments and federal trials. We engage early, often before charges, to shape how the government sees your case.</p></div></li>
+ <li><button aria-expanded="false" aria-controls="d1">DUI &amp; DWI<i>+</i></button><div class="d" id="d1"><p>We challenge the stop, the field tests and the breath or blood evidence, and fight to protect your license and your record.</p></div></li>
+ <li><button aria-expanded="false" aria-controls="d2">White-Collar Crimes<i>+</i></button><div class="d" id="d2"><p>Fraud, embezzlement and securities investigations, handled with forensic accountants and a quiet, strategic approach.</p></div></li>
+ <li><button aria-expanded="false" aria-controls="d3">Drug Offenses<i>+</i></button><div class="d" id="d3"><p>Possession through trafficking. We scrutinize every search, warrant and informant behind the evidence.</p></div></li>
+ <li><button aria-expanded="false" aria-controls="d4">Assault &amp; Violent Crimes<i>+</i></button><div class="d" id="d4"><p>Serious allegations demand a disciplined defense: self-defense, disputed identity and unreliable accounts.</p></div></li>
+ <li><button aria-expanded="false" aria-controls="d5">Criminal Appeals<i>+</i></button><div class="d" id="d5"><p>We read the whole record for legal error and argue for reversal, a new trial or a reduced sentence.</p></div></li></ul></div>
+ <figure class="stage" aria-hidden="true"><div class="case-still"><span>HMR · THE CASE FILES</span><strong>Every detail<br>is evidence.</strong><em>DISCOVER OUR PRACTICE AREAS</em></div>
+  <figcaption id="cap">Federal Criminal Defense</figcaption></figure>
+</section>
+
+<section class="pad" id="attorneys" aria-labelledby="ah"><h2 id="ah"><span>The people behind</span><span>your defense.</span></h2><p class="lede att-lede">Meet the people behind the strategy. <strong>Select an attorney ↓</strong></p>
+ <div class="showcase"><div class="roster" id="roster" role="navigation" aria-label="Attorney chapters"><i class="mark" aria-hidden="true"></i></div><div class="feature" id="feat" aria-live="polite"></div></div>
+</section>
+
+<section class="proc" id="process" aria-label="The art of defense">
+ 
+ <svg viewBox="0 0 400 460" aria-hidden="true"><path class="dr" d="M20 440H380M40 420H360M60 400H340"/><path class="dr" d="M90 400V150M160 400V150M240 400V150M310 400V150"/><path class="dr" d="M70 150H330M60 150L200 50L340 150M200 50V20"/></svg>
+ <div><p style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mut);margin-bottom:20px">04 — The art of defense</p><div class="steps">
+ <div class="step"><div class="n">I</div><h3>Listen</h3><p>A confidential conversation about what happened and what is at stake, within hours of your call.</p></div>
+ <div class="step"><div class="n">II</div><h3>Investigate</h3><p>We obtain the evidence, interview witnesses and test every step police and prosecutors took.</p></div>
+ <div class="step"><div class="n">III</div><h3>Strategize</h3><p>Motions, negotiation or trial: we choose the path that best protects your outcome and tell you why.</p></div>
+ <div class="step"><div class="n">IV</div><h3>Defend</h3><p>We stand beside you at every hearing until the matter is resolved.</p></div><div class="bar"></div></div></div>
+</section>
+
+<section class="pad cases" id="cases" aria-labelledby="ch2"><div class="top"><h2 id="ch2"><span>Case</span><span>outcomes.</span></h2><p class="lede">A closer look at the work behind four sample cases. Select a case to explore the defense approach.</p></div>
+ <div class="case" tabindex="0" role="button" aria-expanded="false"><b>2025</b><div><h3>Indictment dismissed</h3><small>Federal wire fraud · Fictional</small></div><p>Eleven counts dismissed after the government's accounting was shown to double-count transfers.</p><div class="cd"><p><strong>The issue.</strong> A regional business owner faced eleven counts built on a single spreadsheet.</p><p><strong>The defense.</strong> A forensic accountant rebuilt the ledger and showed the same transfers counted twice.</p><p><strong>The result.</strong> The government moved to dismiss before trial.</p></div></div>
+<div class="case" tabindex="0" role="button" aria-expanded="false"><b>2024</b><div><h3>Evidence suppressed</h3><small>Felony DUI · Fictional</small></div><p>A traffic stop was ruled unlawful, and all chemical-test evidence was excluded.</p><div class="cd"><p><strong>The issue.</strong> A felony DUI charge rested entirely on a late-night stop.</p><p><strong>The defense.</strong> Body-camera footage showed no lawful basis for the stop.</p><p><strong>The result.</strong> The court suppressed the evidence and the charge was dropped.</p></div></div>
+<div class="case" tabindex="0" role="button" aria-expanded="false"><b>2024</b><div><h3>Acquitted by jury</h3><small>Aggravated assault · Fictional</small></div><p>A self-defense case, supported by enhanced surveillance video, ended in acquittal.</p><div class="cd"><p><strong>The issue.</strong> Conflicting accounts of a fight outside a venue.</p><p><strong>The defense.</strong> Enhanced video established who was the aggressor.</p><p><strong>The result.</strong> The jury acquitted after short deliberations.</p></div></div>
+<div class="case" tabindex="0" role="button" aria-expanded="false"><b>2023</b><div><h3>Conviction reversed</h3><small>Criminal appeal · Fictional</small></div><p>An improper jury instruction led to reversal and a vacated sentence.</p><div class="cd"><p><strong>The issue.</strong> A nine-year sentence followed a trial with a disputed instruction.</p><p><strong>The defense.</strong> Appellate counsel reviewed the full record for preserved error.</p><p><strong>The result.</strong> The conviction was reversed and the sentence vacated.</p></div></div>
+<p class="hint">Illustrative cases only. Every real matter depends on its own facts; no result can be guaranteed.</p>
+</section>
+
+<section class="pad rev" id="reviews" aria-label="Illustrative client experiences">
+ 
+ <div><blockquote id="rq"></blockquote><cite id="rc"></cite><div class="dots" id="rd"></div><div class="rprog"><i id="rpg"></i></div></div>
+</section>
+
+<section class="pad ins" id="insights" aria-labelledby="ih"><h2 id="ih">Legal insights</h2>
+ <article><a role="button" tabindex="0" data-art><small>Your rights · 6 min</small><h3>What to say, and not say, when police call</h3><p>What to know before answering investigators.</p></a></article>
+ <article><a role="button" tabindex="0" data-art><small>Federal · 8 min</small><h3>Target, subject or witness? Reading a grand jury letter</h3><p>Understand what the letter may mean and when to call counsel.</p></a></article>
+ <article><a role="button" tabindex="0" data-art><small>DUI · 5 min</small><h3>The license deadline most drivers miss</h3><p>Deadlines to challenge a suspension are short and vary by state.</p></a></article>
+</section>
+
+<section class="pad faq" id="faq" aria-labelledby="qh"><h2 id="qh"><span>Common</span><span>questions.</span></h2><div class="qa">
+<details><summary>Should I talk to the police without a lawyer?</summary><p>You are generally not required to answer investigators' questions, and you can ask for a lawyer first. What you say can be used against you, so speak with counsel before agreeing to any interview.</p></details>
+<details><summary>I was just arrested. What should I do first?</summary><p>Stay calm, do not discuss the facts with anyone but your attorney, and ask for a lawyer. Write down what you remember while it is fresh, and keep every document you were given.</p></details>
+<details><summary>How soon should I call?</summary><p>As soon as you can. Deadlines for bail hearings, license suspensions and subpoena responses can be short, and early advice can protect options that are hard to recover later.</p></details>
+<details><summary>Is my first conversation confidential?</summary><p>Communications with a lawyer made to obtain legal advice are generally privileged. Submitting a web form does not by itself create an attorney-client relationship; the firm confirms that in writing.</p></details>
+<details><summary>What will it cost?</summary><p>Fees depend on the charge, the court and the stage of the case. A real firm would explain its fee structure in writing at the first consultation. This is a sample answer for a concept demonstration.</p></details></div></section>
+<section class="pad final" id="contact" aria-labelledby="fin">
+ <div class="fl"><h2 id="fin"><span>Your defense</span><span>starts with</span><span>a conversation.</span></h2><ol class="next"><li><div><strong>Start a conversation</strong>Tell us how to reach you. This form is a concept demo.</div></li><li><div><strong>Understand your options</strong>A real firm would review the matter and discuss next steps.</div></li><li><div><strong>Move forward informed</strong>Ask about timing, strategy, and fees.</div></li></ol></div>
+ <div class="fr"><form id="form" novalidate aria-label="Request a consultation">
+  <div><label for="n">Full name</label><input id="n" name="name" autocomplete="name"><span class="err" data-f="name"></span></div>
+  <div><label for="e">Email</label><input id="e" name="email" type="email" autocomplete="email"><span class="err" data-f="email"></span></div>
+  <div><label for="p">Phone</label><input id="p" name="phone" type="tel" autocomplete="tel"><span class="err" data-f="phone"></span></div>
+  <div><label for="t">Matter type</label><select id="t" name="type"><option>Federal criminal defense</option><option>DUI / DWI</option><option>White-collar</option><option>Drug offense</option><option>Assault / violent crime</option><option>Appeal</option></select></div>
+  <div class="two"><div><label for="u">Next court date or deadline</label><select id="u" name="urgency"><option>Within 7 days</option><option>Within 30 days</option><option>No date yet</option></select></div><div><label for="cm">Preferred contact</label><select id="cm" name="contact"><option>Phone call</option><option>Text message</option><option>Email</option></select></div></div><div><label for="m">Briefly, what is happening?</label><textarea id="m" name="message"></textarea><span class="err" data-f="message"></span></div>
+  <div><label class="chk"><input type="checkbox" id="c" name="consent"><span>I understand this does not create an attorney-client relationship.</span></label><span class="err" data-f="consent"></span></div>
+  <div><button class="btn" type="submit">Preview consultation request</button></div><p id="status" role="status" aria-live="polite"></p></form><div id="done" class="done" hidden tabindex="-1"><p class="eb">Request received · demo</p><h3>Thank you, <span id="dn"></span>.</h3><p>On a live site, an attorney would review your <strong id="dm"></strong> matter privately and respond by your preferred method. This demo sent nothing.</p><p class="ref">Reference <b id="dref"></b></p><button class="btn" id="again" type="button">Start another request</button></div></div>
+</section></main>
+<footer><div><a class="logo" href="#top">HALE · MARCHETTI · REYES</a><p>Criminal defense counsel. Concept demonstration; the firm, its people, cases and reviews are fictional.</p></div>
+ <div><h4>Practice</h4><ul><li><a href="#practice">Federal defense</a></li><li><a href="#practice">DUI &amp; DWI</a></li><li><a href="#practice">White-collar</a></li><li><a href="#practice">Appeals</a></li></ul></div>
+ <div><h4>Firm</h4><ul><li><a href="#attorneys">Attorneys</a></li><li><a href="#cases">Outcomes</a></li><li><a href="#insights">Insights</a></li></ul></div>
+ <div><h4>Contact</h4><ul><li><a href="tel:+15550100199">(555) 010-0199</a> · demo number</li><li>Demo address, Chicago, IL</li><li>Available 24/7</li></ul></div>
+ <p class="fine">Attorney advertising. Past results do not guarantee a similar outcome. Photographs are for illustration; portraits depict models, not real attorneys.</p></footer>
+
+<dialog id="dlg" aria-labelledby="dt"><button class="x" aria-label="Close">×</button><div id="dbody"></div></dialog>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script>
+addEventListener("load",()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia("(prefers-reduced-motion:reduce)").matches,G=typeof gsap!=="undefined"&&typeof ScrollTrigger!=="undefined",T=typeof THREE!=="undefined",mob=innerWidth<860;
+let mx=0,my=0,sp=0;addEventListener("pointermove",e=>{mx=(e.clientX/innerWidth-.5)*2;my=-(e.clientY/innerHeight-.5)*2});
+/* practice */
+const L=$$(".stage .ph"),bt=$$(".pa button"),cap=$("#cap");
+bt.forEach((b,i)=>{const d=$("#"+b.getAttribute("aria-controls")),on=()=>{L.forEach((x,j)=>x.classList.toggle("on",i===j));cap.textContent=b.firstChild.textContent};
+ b.addEventListener("mouseenter",on);b.addEventListener("focus",on);
+ b.addEventListener("click",()=>{const o=b.getAttribute("aria-expanded")==="true";bt.forEach(x=>{x.setAttribute("aria-expanded","false");$("#"+x.getAttribute("aria-controls")).style.maxHeight=0});if(!o){b.setAttribute("aria-expanded","true");d.style.maxHeight=d.scrollHeight+"px"}on();setTimeout(()=>G&&ScrollTrigger.refresh(),750)})});
+/* reviews */
+const RV=[["They explained the next steps without making promises. I knew what questions to ask.","Robert D.",12,"Sample federal inquiry"],["The preparation was thorough, and every decision was explained clearly.","James W.",22,"Sample trial matter"],["My concerns were taken seriously. The communication was clear and consistent.","Angela T.",33,"Sample DUI matter"],["They reviewed the record closely and helped me understand the appeals process.","Anthony K.",9,"Sample appeal"]];
+const pr=["women","men","women","men"],rd=$("#rd");let ri=0,tm;
+function show(i){ri=i;$("#rq").textContent="\u201C"+RV[i][0]+"\u201D";$("#rc").textContent=RV[i][1]+" — "+RV[i][3]+" · fictional example";const pb=$("#rpg");pb.style.animation="none";pb.offsetWidth;pb.style.animation="";
+ 
+ [...rd.children].forEach((b,j)=>b.setAttribute("aria-current",j===i))}
+RV.forEach((_,i)=>{const b=document.createElement("button");b.textContent=i+1;b.setAttribute("aria-label","Review "+(i+1));b.onclick=()=>{show(i);clearInterval(tm)};rd.append(b)});show(0);
+/* form (demo) */
+const F=$("#form"),st=$("#status"),R={name:(v)=>v.trim().length>1||"Enter your full name.",email:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)||"Enter a valid email.",phone:v=>v.replace(/\D/g,"").length>=7||"Enter a phone number.",message:v=>v.trim().length>9||"Add a sentence or two.",consent:(v,el)=>el.checked||"Please confirm."};
+const ck=n=>{const el=F.elements[n],r=R[n](el.value,el);$(`[data-f=${n}]`).textContent=r===true?"":r;el.setAttribute("aria-invalid",r!==true);return r===true};
+Object.keys(R).forEach(n=>F.elements[n].addEventListener("blur",()=>ck(n)));
+F.addEventListener("submit",e=>{e.preventDefault();st.textContent="";if(!Object.keys(R).map(ck).every(Boolean)){F.querySelector("[aria-invalid=true]").focus();return}
+ const v=Object.fromEntries(new FormData(F));$("#dn").textContent=v.name.trim().split(" ")[0];$("#dm").textContent=v.type.toLowerCase();$("#dref").textContent="DEMO-"+Math.random().toString(36).slice(2,8).toUpperCase();F.hidden=true;$("#done").hidden=false;$("#done").focus();F.reset()});$("#again").onclick=()=>{$("#done").hidden=true;F.hidden=false;F.elements.name.focus()};
+$$('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{const t=$(a.getAttribute("href"));if(!t)return;e.preventDefault();t.scrollIntoView({behavior:RM?"auto":"smooth"})}));
+/* three: courthouse film */
+let gl=false;
+if(T){try{
+const cv=$("#gl"),isTouchDevice=matchMedia("(pointer:coarse)").matches,R3=new THREE.WebGLRenderer({canvas:cv,antialias:!isTouchDevice,preserveDrawingBuffer:true});
+R3.setPixelRatio(Math.min(devicePixelRatio,isTouchDevice?1.3:2));R3.outputEncoding=THREE.sRGBEncoding;R3.toneMapping=THREE.ACESFilmicToneMapping;R3.toneMappingExposure=.9;
+if(!isTouchDevice){R3.shadowMap.enabled=true;R3.shadowMap.type=THREE.PCFSoftShadowMap}
+const S=new THREE.Scene();S.background=new THREE.Color(0x070b14);S.fog=new THREE.FogExp2(0x080b12,.0058);
+const C=new THREE.PerspectiveCamera(50,1,.1,500);
+const E=new THREE.Scene(),eb=(w,h,x,y,z,c)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:c,side:2}));m.position.set(x,y,z);m.lookAt(0,0,0);E.add(m)};
+E.add(new THREE.Mesh(new THREE.BoxGeometry(60,60,60),new THREE.MeshBasicMaterial({color:0x080b12,side:1})));
+eb(30,14,0,26,0,new THREE.Color(2.4,3,4.4));eb(6,30,-24,6,-6,new THREE.Color(1.4,2,3.4));eb(6,30,24,6,-10,new THREE.Color(1.2,1.6,2.4));eb(8,10,0,6,-28,new THREE.Color(4,2.8,1.8));
+S.environment=new THREE.PMREMGenerator(R3).fromScene(E,.03).texture;
+const cvs=(w,h)=>{const c=document.createElement("canvas");c.width=w;c.height=h;return[c,c.getContext("2d")]};
+const T2=(c,rx,ry)=>{const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(rx||1,ry||1);t.anisotropy=4;t.encoding=THREE.sRGBEncoding;return t};
+const marT=(rx,ry,base)=>{const[c,x]=cvs(1024,1024);x.fillStyle=base;x.fillRect(0,0,1024,1024);for(let i=0;i<55;i++){x.beginPath();let px=Math.random()*1024,py=Math.random()*1024;x.moveTo(px,py);for(let k=0;k<7;k++){px+=(Math.random()-.5)*260;py+=(Math.random()-.3)*220;x.quadraticCurveTo(px+Math.random()*120,py-60,px,py)}x.strokeStyle=`rgba(190,205,225,${.03+Math.random()*.1})`;x.lineWidth=.6+Math.random()*3;x.stroke()}return T2(c,rx,ry)};
+const stoneT=(()=>{const[c,x]=cvs(512,512);x.fillStyle="#8c877b";x.fillRect(0,0,512,512);for(let i=0;i<5000;i++){x.fillStyle=Math.random()<.5?"rgba(40,50,70,.07)":"rgba(255,255,255,.06)";x.fillRect(Math.random()*512,Math.random()*512,2+Math.random()*4,1+Math.random()*3)}return T2(c,2,2)})();
+const woodT=(()=>{const[c,x]=cvs(512,512);x.fillStyle="#1b1611";x.fillRect(0,0,512,512);for(let i=0;i<90;i++){x.fillStyle=`rgba(${Math.random()<.5?"0,0,0":"90,60,35"},${.08+Math.random()*.12})`;x.fillRect(Math.random()*512,0,1+Math.random()*3,512)}x.strokeStyle="rgba(0,0,0,.55)";x.lineWidth=4;for(let i=0;i<4;i++)x.strokeRect(i*128+6,20,116,472);return T2(c,1,1)})();
+const M=o=>new THREE.MeshStandardMaterial(o),blk=M({map:marT(1,1,"#0b0d12"),roughness:.1,metalness:.3,envMapIntensity:1.4}),blk3=M({map:marT(1,3,"#0b0d12"),roughness:.12,metalness:.3,envMapIntensity:1.2}),stone=M({map:stoneT,roughness:.6,metalness:.03,envMapIntensity:.7}),wood=M({map:woodT,roughness:.5,metalness:.05,envMapIntensity:.5}),bronze=M({color:0x8a6b45,metalness:.85,roughness:.38,envMapIntensity:1}),steel=M({color:0x9aa4b2,metalness:1,roughness:.25,envMapIntensity:1.3}),navy=M({color:0x111a2b,roughness:.7,metalness:.1});
+const V=a=>new THREE.Vector2(a[0],a[1]),LA=(p,m,s)=>new THREE.Mesh(new THREE.LatheGeometry(p.map(V),s||48),m),Bx=(w,h,d,m,x,y,z)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);return o},Cy=(a,b,h,m,x,y,z,s)=>{const o=new THREE.Mesh(new THREE.CylinderGeometry(a,b,h,s||32),m);o.position.set(x,y,z);return o};
+const stg=i=>{const g=new THREE.Group();g.position.x=i*300;S.add(g);return g};
+const glow=(w,h,c)=>new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:c||0xffd7a6,fog:false}));
+const mist=(g,n,R,H,c)=>{const a=new Float32Array(n*3);for(let i=0;i<n;i++){a[i*3]=(Math.random()-.5)*R*2;a[i*3+1]=Math.random()*H;a[i*3+2]=(Math.random()-.5)*R*2}const q=new THREE.BufferGeometry();q.setAttribute("position",new THREE.BufferAttribute(a,3));const p=new THREE.Points(q,new THREE.PointsMaterial({color:c||0xbfd0ea,size:.08,transparent:true,opacity:.35,depthWrite:false}));g.add(p);return p};
+const flG=new THREE.CylinderGeometry(.82,.92,12,44,1),fp=flG.attributes.position;for(let i=0;i<fp.count;i++){const x=fp.getX(i),z=fp.getZ(i),a=Math.atan2(z,x),k=1-.05*Math.pow(Math.abs(Math.sin(a*10)),.45);fp.setX(i,x*k);fp.setZ(i,z*k)}flG.computeVertexNormals();
+const col=(x,y,z,h,m)=>{const g=new THREE.Group(),s=new THREE.Mesh(flG,m||stone);s.scale.y=h/12;s.position.y=h/2+.3;g.add(s,LA([[1.25,0],[1.25,.3],[1.05,.5]],m||stone),Bx(2.3,.3,2.3,m||stone,0,0,0));g.children[2].position.y=.15;const cp=LA([[.95,0],[1.1,.15],[1.25,.5],[1.05,.75]],m||stone);cp.position.y=h+.3;const ab=Bx(2.6,.3,2.6,m||stone,0,h+1.2,0);g.add(cp,ab);g.position.set(x,y,z);return g};
+const justice=()=>{const f=new THREE.Group(),pr=[[1.5,0],[1.46,.4],[1.22,1.2],[.98,2.2],[.82,3.1],[.64,3.7],[.56,4.1],[.64,4.45],[.52,4.9],[.33,5.15]],rg=new THREE.LatheGeometry(pr.map(V),80),pp=rg.attributes.position;
+ for(let i=0;i<pp.count;i++){const x=pp.getX(i),y=pp.getY(i),z=pp.getZ(i),a=Math.atan2(z,x),k=1+.08*Math.sin(a*9+y*1.8)*Math.min(1,y/1.5)+.035*Math.sin(a*17-y*3)+.02*Math.sin(a*5+y*4);pp.setXYZ(i,x*k,y,z*k)}rg.computeVertexNormals();f.add(new THREE.Mesh(rg,blk));
+ const hd=new THREE.Mesh(new THREE.SphereGeometry(.31,40,28),blk);hd.position.y=5.5;const bn=new THREE.Mesh(new THREE.SphereGeometry(.2,20,16),blk);bn.position.set(0,5.55,-.27);const bf=new THREE.Mesh(new THREE.TorusGeometry(.32,.04,10,40),bronze);bf.rotation.x=Math.PI/2;bf.position.y=5.54;f.add(hd,bn,bf);
+ const arm=p=>new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(p.map(a=>new THREE.Vector3(...a))),28,.13,14),blk);f.add(arm([[.55,4.6,0],[1.05,5.1,.3],[1.25,5.9,.4]]),arm([[-.55,4.6,0],[-1,4.1,.45],[-1.1,3.5,.65]]));
+ f.add(Bx(.15,3.4,.05,steel,-1.1,1.8,.65),Bx(1,.12,.16,bronze,-1.1,3.55,.65));const gr=Cy(.05,.05,.6,bronze,-1.1,3.9,.65,10);f.add(gr);
+ const sc=new THREE.Group();sc.position.set(1.25,6.2,.4);sc.add(Bx(2.7,.07,.07,bronze,0,0,0));[-1.3,1.3].forEach(x=>{sc.add(Cy(.5,.26,.1,bronze,x,-1.1,0,32));const p=[];[0,2.1,4.2].forEach(a=>p.push(x,0,0,x+Math.cos(a)*.48,-1.1,Math.sin(a)*.48));const lg=new THREE.BufferGeometry();lg.setAttribute("position",new THREE.Float32BufferAttribute(p,3));sc.add(new THREE.LineSegments(lg,new THREE.LineBasicMaterial({color:0x8a6b45})))});f.add(sc);return f};
+/* 0 courthouse exterior */
+const g0=stg(0),bld=new THREE.Group();g0.add(bld);
+const gnd=new THREE.Mesh(new THREE.PlaneGeometry(400,400),M({map:marT(14,14,"#090b10"),roughness:.07,metalness:.35,transparent:true,opacity:.86,envMapIntensity:1.3}));gnd.rotation.x=-Math.PI/2;gnd.position.y=-.02;g0.add(gnd);
+for(let i=0;i<7;i++)bld.add(Bx(38,.35*(i+1),1.8,stone,0,.175*(i+1),22-i*1.7));
+bld.add(Bx(36,2.45,14,stone,0,1.225,3));
+for(let i=0;i<8;i++){const x=-12+i*24/7;bld.add(col(x,2.45,7,12),col(x,2.45,2.8,12))}
+bld.add(Bx(32,14,2,stone,0,9.45,-1.2),Bx(31,2.2,6.4,stone,0,15.55,4.4),Bx(32,.5,7,stone,0,16.8,4.4),Bx(32,3,14,stone,0,18.3,-2.5));
+const ps=new THREE.Shape();ps.moveTo(-16,0);ps.lineTo(16,0);ps.lineTo(0,4.6);ps.closePath();const ped=new THREE.Mesh(new THREE.ExtrudeGeometry(ps,{depth:5.4,bevelEnabled:true,bevelThickness:.12,bevelSize:.12,bevelSegments:2}),stone);ped.position.set(0,17.05,1.8);bld.add(ped);
+const ps2=new THREE.Shape();ps2.moveTo(-13.4,.5);ps2.lineTo(13.4,.5);ps2.lineTo(0,3.9);ps2.closePath();const tym=new THREE.Mesh(new THREE.ShapeGeometry(ps2),M({map:stoneT,color:0x7a8086,roughness:.84,metalness:0}));tym.position.set(0,17.05,7.35);bld.add(tym);
+const dn=new THREE.InstancedMesh(new THREE.BoxGeometry(.35,.45,.4),stone,80),d=new THREE.Object3D();for(let i=0;i<80;i++){d.position.set(-15+i*.38,14.3,7.75);d.updateMatrix();dn.setMatrixAt(i,d.matrix)}bld.add(dn);
+[-9,0,9].forEach(x=>{const g=glow(4.4,8.6),f1=Bx(.4,9,.5,bronze,x-2.5,6.95,.1),f2=Bx(.4,9,.5,bronze,x+2.5,6.95,.1),f3=Bx(5.4,.5,.5,bronze,x,11.5,.1);g.position.set(x,7,-.15);bld.add(g,f1,f2,f3)});
+[-1,1].forEach(s=>{bld.add(Bx(20,10,14,stone,s*28,7.45,-2),Bx(21,.6,15,stone,s*28,12.75,-2));const wi=new THREE.InstancedMesh(new THREE.PlaneGeometry(1.6,3),new THREE.MeshBasicMaterial({color:0xffcf98,fog:false}),30),q=new THREE.Object3D();let n=0;for(let r=0;r<2;r++)for(let c=0;c<6;c++){q.position.set(s*28+(c-2.5)*3.3,5.4+r*4.4,5.1);q.scale.setScalar(Math.random()<.3?.001:1);q.updateMatrix();wi.setMatrixAt(n++,q.matrix)}bld.add(wi);
+ const pl=new THREE.Group();pl.add(Bx(6,.6,6,blk,0,.3,0),Bx(4.6,4,4.6,blk,0,2.6,0),Bx(5.2,.5,5.2,blk,0,4.85,0));});
+const um=LA([[0,0],[.5,0],[.55,.25],[.35,.5],[.3,1.1],[.55,1.5],[.6,1.9],[.45,2.1],[0,2.1]],stone);[-15.6,15.6,0].forEach((x,i)=>{const u=um.clone();u.position.set(x,i==2?21.7:17.2,i==2?4.4:7.2);u.scale.setScalar(i==2?1.3:1);bld.add(u)});
+[-13.5,-4.5,4.5,13.5].forEach(x=>bld.add(Bx(.9,10,.5,stone,x,7.45,.2),Bx(1.2,.4,.7,stone,x,12.6,.2)));
+const pool=new THREE.CanvasTexture((()=>{const[c,x]=cvs(128,128),g=x.createRadialGradient(64,64,2,64,64,64);g.addColorStop(0,"rgba(255,205,150,.55)");g.addColorStop(1,"rgba(255,205,150,0)");x.fillStyle=g;x.fillRect(0,0,128,128);return c})());
+const lamp=(x,z)=>{const g=new THREE.Group();g.add(Cy(.14,.2,6.5,bronze,0,3.25,0,12),Cy(.35,.2,.5,bronze,0,6.7,0,12),Cy(.45,.1,.3,bronze,0,7.7,0,12));const b=new THREE.Mesh(new THREE.SphereGeometry(.38,16,12),new THREE.MeshBasicMaterial({color:0xffdcb0,fog:false}));b.position.y=7.2;const pl=new THREE.Mesh(new THREE.PlaneGeometry(9,9),new THREE.MeshBasicMaterial({map:pool,transparent:true,depthWrite:false,blending:2,fog:false}));pl.rotation.x=-Math.PI/2;pl.position.y=.03;g.add(b,pl);g.position.set(x,0,z);bld.add(g)};
+[[-13,32],[13,32],[-13,48],[13,48],[-13,64],[13,64]].forEach(a=>lamp(a[0],a[1]));
+const mir=bld.clone();mir.scale.y=-1;g0.add(mir);
+if(!mob)bld.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});
+const mo=new THREE.SpotLight(0x8598b9,2.2,300,.65,.7,1);mo.position.set(-50,80,70);mo.target.position.set(0,6,0);mo.castShadow=!isTouchDevice;mo.shadow.mapSize.set(2048,2048);mo.shadow.bias=-.0003;g0.add(mo,mo.target);
+const dl=new THREE.SpotLight(0xe9b77c,2.0,70,.7,.8,1);dl.position.set(0,18,12);dl.target.position.set(0,0,22);g0.add(dl,dl.target);const dl2=new THREE.PointLight(0xe3ab73,1.0,40);dl2.position.set(0,7,4);g0.add(dl2);const m0=mist(g0,180,40,8);
+const sky=new THREE.Mesh(new THREE.PlaneGeometry(500,160),new THREE.MeshBasicMaterial({map:(()=>{const[c,x]=cvs(8,256),g=x.createLinearGradient(0,256,0,0);g.addColorStop(0,"#101829");g.addColorStop(.35,"#090e19");g.addColorStop(1,"#03060c");x.fillStyle=g;x.fillRect(0,0,8,256);return new THREE.CanvasTexture(c)})(),fog:false,depthWrite:false}));sky.position.set(0,50,-120);g0.add(sky);
+/* 2 -- quietly lit legal research studio; no arcade doors or floating category signs */
+const g2=stg(2), caseGlows=[], casePanels=[];
+const rear=Bx(76,23,1,navy,0,11,-20), floor2=Bx(78,.4,45,blk,0,-.2,-2);
+g2.add(rear,floor2);
+for(let i=-16;i<=16;i+=4){
+ const panel=Bx(3.7,20,.32,wood,i,10,-19.3),rail=Bx(.05,20,.4,bronze,i+1.92,10,-19.05);
+ g2.add(panel,rail);
+}
+for(let j=0;j<3;j++){
+ const y=3.3+j*5.2;g2.add(Bx(39,.34,3.1,wood,0,y,-16.8));
+ for(let i=0;i<30;i++){
+  const x=-18.5+i*1.25,ht=2.9+Math.sin(i*2.1+j)*.7;
+  const book=Bx(.68,ht,1.8,i%6===0?bronze:(i%5===0?navy:wood),x,y+ht/2+.15,-16.7);
+  book.rotation.z=(i%13===0)?-.055:0;
+  const band=Bx(.7,.06,1.82,bronze,x,y+ht*.30,-16.69);
+  g2.add(book,band);
+ }
+}
+g2.add(Bx(41,.6,1,bronze,0,20,-17.8));
+// Foreground legal preparation table with paper, binders and warm task lighting.
+const desk=new THREE.Group();desk.position.set(5,0,5);g2.add(desk);
+desk.add(Bx(28,.7,9,wood,0,3.65,0),Bx(1.1,3.3,8.5,blk,-12,1.8,0),Bx(1.1,3.3,8.5,blk,12,1.8,0));
+for(let i=0;i<6;i++){
+ const x=-9+i*3.45, file=new THREE.Group();file.position.set(x,4.05,-.2+i%2*.48);
+ file.add(Bx(2.65,.09,3.4,M({color:0xd8d1c2,roughness:.88}),0,.1,0));
+ file.add(Bx(2.75,.10,3.55,navy,0,0,0));
+ file.add(Bx(.75,.025,1.2,bronze,.55,.2,.4));
+ file.rotation.y=(i-2.5)*.032;desk.add(file);casePanels.push(file);
+ const sl=new THREE.PointLight(i===0?0xd3a97c:0x77859a,i===0?1.3:.15,12);sl.position.set(x+5,6.1,3);g2.add(sl);caseGlows.push(sl);
+}
+const lampStem=Cy(.085,.085,3.5,bronze,16,5.6,1,14);
+const lampShade=Cy(.65,1.35,1.15,bronze,16,7.5,1,24);
+const lampLight=new THREE.SpotLight(0xffd4a2,4.2,22,.85,.75,1);lampLight.position.set(16,7.1,1);lampLight.target.position.set(9,3.5,2);desk.add(lampStem,lampShade);g2.add(lampLight,lampLight.target);
+const s2=new THREE.SpotLight(0x9fb4d8,2,65,.9,.7,1);s2.position.set(-22,20,14);s2.target.position.set(0,8,-14);g2.add(s2,s2.target);
+const s2warm=new THREE.PointLight(0xffe0b7,.6,45);s2warm.position.set(0,12,-5);g2.add(s2warm);
+let pi=0;const highlightCase=i=>{window.__dirty=true;pi=i;caseGlows.forEach((l,j)=>l.intensity=j===i?1.5:.08);casePanels.forEach((f,j)=>f.position.y=j===i?4.12:4.05)};
+$$('.pa button').forEach((b,i)=>{['mouseenter','focus','click'].forEach(ev=>b.addEventListener(ev,()=>highlightCase(i)))});
+highlightCase(0);
+/* 3 staircase */
+const g3=stg(3),NS=60,sp=new THREE.InstancedMesh(new THREE.BoxGeometry(22,.26,.9),stone,NS),dd=new THREE.Object3D();for(let i=0;i<NS;i++){dd.position.set(0,(i+1)*.13,30-i*.9);dd.scale.set(1,i+1,1);dd.updateMatrix();sp.setMatrixAt(i,dd.matrix)}g3.add(sp);
+const gnd3=new THREE.Mesh(new THREE.PlaneGeometry(300,300),M({color:0x080b12,roughness:.1,metalness:.3}));gnd3.rotation.x=-Math.PI/2;gnd3.position.y=-.02;g3.add(gnd3);
+for(let j=0;j<6;j++){const z=26-j*9,y=((30-z)/.9+1)*.26;[-1,1].forEach(s=>g3.add(col(s*12,y,z,10)))}
+const top=15.8;g3.add(Bx(40,.5,12,stone,0,top-.25,-30),Bx(30,18,2,stone,0,top+9,-37),Bx(32,2,3,stone,0,top+19,-36));
+[-6,0,6].forEach(x=>{const g=glow(4.4,9);g.position.set(x,top+4.6,-35.9);g3.add(g,Bx(.4,9.4,.5,bronze,x-2.4,top+4.7,-35.8),Bx(.4,9.4,.5,bronze,x+2.4,top+4.7,-35.8))});
+const[lc,lx]=cvs(1024,128);lx.fillStyle="#0e1524";lx.fillRect(0,0,1024,128);lx.fillStyle="#E6E1D6";lx.font="300 62px Georgia,serif";lx.textAlign="center";lx.fillText("EQUAL JUSTICE UNDER LAW",512,86);const lt=new THREE.Mesh(new THREE.PlaneGeometry(20,2.5),new THREE.MeshBasicMaterial({map:T2(lc),fog:false}));lt.position.set(0,top+12.2,-34.4);g3.add(lt);
+const m3=new THREE.SpotLight(0x9fb8e8,4,200,.7,.7,1);m3.position.set(-30,70,50);m3.target.position.set(0,8,-10);g3.add(m3,m3.target);const d3=new THREE.PointLight(0xffc890,3,50);d3.position.set(0,top+6,-28);g3.add(d3);[-1,1].forEach(s=>{const r=Bx(.18,.14,56,bronze,s*10,9.3,3.4);r.rotation.x=.281;g3.add(r)});const hl=new THREE.Mesh(new THREE.PlaneGeometry(26,26),new THREE.MeshBasicMaterial({map:pool,transparent:true,depthWrite:false,blending:2,fog:false}));hl.position.set(0,top+6,-35.4);g3.add(hl);const hp=new THREE.Mesh(new THREE.PlaneGeometry(34,34),new THREE.MeshBasicMaterial({map:pool,transparent:true,depthWrite:false,blending:2,fog:false}));hp.rotation.x=-Math.PI/2;hp.position.set(0,top+.05,-26);g3.add(hp);mist(g3,200,25,20);
+const hz=new THREE.AmbientLight(0x2b3a58,.38);S.add(hz);
+const sz=()=>{R3.setSize(innerWidth,innerHeight,false);C.aspect=innerWidth/innerHeight;C.updateProjectionMatrix()};addEventListener("resize",()=>{sz();window.__dirty=true});sz();
+/* camera director v2 -- stable editorial compositions, NO inter-stage flight */
+const sceneSets=[g0,null,g2,g3,null];
+const els=[$('.hero'),$('#firm'),$('#practice'),$('#attorneys'),$('#process'),$('#cases'),$('#reviews'),$('#insights'),$('#contact')];
+const stageFor=[0,-1,2,-1,3,-1,-1,-1,-1];
+const hold=document.createElement('canvas');hold.className='gl-hold';hold.setAttribute('aria-hidden','true');cv.after(hold);
+const hc=hold.getContext('2d',{alpha:false});
+let hu=0,currentStage=undefined,first=true,cp=new THREE.Vector3(),look=new THREE.Vector3(),idleFrames=0;
+const sz2=()=>{hold.width=cv.width;hold.height=cv.height};
+addEventListener('resize',sz2);sz2();
+const activeSection=()=>{const q=innerHeight*.48;for(let i=els.length-1;i>=0;i--){const r=els[i].getBoundingClientRect();if(r.top<=q&&r.bottom>=q)return i}return scrollY<innerHeight?0:8};
+function tick(now){requestAnimationFrame(tick);if(document.hidden)return;
+ if(isTouchDevice&&(idleFrames++%2))return;
+ const section=activeSection(),nextStage=stageFor[section],t=now/1000;
+ if(nextStage===currentStage&&nextStage!==0&&!window.__dirty&&now-(window.__lt||0)<500)return;window.__lt=now;window.__dirty=false;
+ if(nextStage!==currentStage){
+   if(currentStage!==undefined&&cv.width&&cv.height){
+     hold.width=cv.width;hold.height=cv.height;
+     try{hc.drawImage(cv,0,0,hold.width,hold.height);hold.style.transition='none';hold.style.opacity='1';void hold.offsetWidth;}catch(e){hold.style.opacity='0'}
+   }
+   currentStage=nextStage;
+   sceneSets.forEach((g,i)=>g&&(g.visible=(nextStage===i)));
+   if(nextStage===0){const narrow=innerWidth<860;cp.set(narrow?-12:-15,narrow?8.8:8.5,narrow?91:83);look.set(narrow?-10:-12,9,0)}
+   else if(nextStage===2){cp.set(1.4,6.5,24);look.set(2,5.4,-8)}
+   else if(nextStage===3){cp.set(-11,6.2,29);look.set(0,9,-7)}
+   else{cp.set(0,5,45);look.set(0,5,0)}
+   C.position.copy(cp);C.lookAt(look);C.fov=innerWidth<700?58:50;C.clearViewOffset();C.updateProjectionMatrix();
+   requestAnimationFrame(()=>{hold.style.transition='opacity .65s ease-out';hold.style.opacity='0'});
+ }
+ // A nearly imperceptible hero-only drift; static, stable scenes for reading.
+ if(nextStage===0&&!RM){const u=Math.max(0,Math.min(1,scrollY/(innerHeight*.9))),e=u*u*(3-2*u);hu+=(e-hu)*.07;
+  C.position.set(cp.x+6*hu+mx*.6+Math.sin(t*.12)*.3,cp.y+1.6*hu+my*.3,cp.z-30*hu+Math.sin(t*.2)*.2);
+  C.lookAt(look.x+8*hu,look.y+hu,look.z);
+ }else{C.position.copy(cp);C.lookAt(look)}
+ R3.render(S,C);
+}
+sceneSets.forEach(g=>g&&(g.visible=false));
+tick(performance.now());
+gl=true;document.body.classList.add('has-webgl');$('.heroart').style.opacity=0;cv.style.opacity='1';
+}catch(e){console.warn('WebGL fallback:',e);gl=false}}
+if(!gl)$('#gl').style.display='none';
+/* hero scroll motion + scroll-in reveals */
+if(!RM){const pr=$('.hero-poster'),pa=$('.parl'),h1=$('.hero h1'),ct=$('.hero .ctas');let tk=0;addEventListener('scroll',()=>{if(tk)return;tk=1;requestAnimationFrame(()=>{tk=0;const y=Math.min(scrollY,innerHeight*1.2),k=Math.min(1,y/innerHeight);if(pr)pr.style.transform=`translate3d(0,${y*.12}px,0) scale(${1.04+k*.06})`;if(pa)pa.style.transform=`translate3d(0,${-y*.06}px,0)`;[h1,ct].forEach(e=>{if(e){e.style.transform=`translate3d(0,${y*.16}px,0)`;e.style.opacity=Math.max(0,1-k*1.15)}})})},{passive:true});
+ document.documentElement.classList.add('js-rv');const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.05,rootMargin:'0px 0px -6% 0px'});
+ $$('.firm .l,.firm-panel,.pa>div:first-child,.step,.qa details,.next li,.fr,.trust li,.rev>div,.hint').forEach((e,i)=>{e.classList.add('rv');e.style.transitionDelay=(i%4)*90+'ms';io.observe(e)})}
+/* gsap */
+const l=$("#load");setTimeout(()=>{l.style.opacity=0;setTimeout(()=>l.remove(),900);if(G&&!RM)gsap.from("h1 em",{yPercent:110,duration:1.6,ease:"power4.out",stagger:.15});if(G&&!RM)gsap.from([".sub",".hero .btn"],{opacity:0,y:24,delay:.8,duration:1.2,stagger:.15})},700);
+if(G&&!RM){gsap.registerPlugin(ScrollTrigger);ScrollTrigger.create({trigger:".hero",start:"top top",end:"bottom top",onUpdate:s=>sp=s.progress});
+ /* Hero lettering stays still during reading; movement limited to entrance. */
+ $$("h2 span").forEach(s=>{const w=document.createElement("em");w.style.cssText="display:block;font-style:normal";while(s.firstChild)w.append(s.firstChild);s.append(w);gsap.from(w,{yPercent:110,duration:1.3,ease:"power4.out",scrollTrigger:{trigger:s,start:"top 88%"}})});
+ $$(".ph:not(.stage .ph)").forEach(p=>{const i=p.querySelector("img");gsap.from(p,{clipPath:"inset(12% 6% 12% 6%)",duration:1.5,ease:"power3.out",scrollTrigger:{trigger:p,start:"top 90%"}});/* no scroll-scrub on photographs */});
+ 
+ gsap.from(".case",{opacity:0,x:-40,stagger:.12,duration:1,scrollTrigger:{trigger:".cases .case",start:"top 85%"}});
+ gsap.from(".ins article",{opacity:0,y:60,stagger:.15,duration:1.2,scrollTrigger:{trigger:".ins article",start:"top 85%"}});
+ const ps=$$(".dr");ps.forEach(p=>{const n=p.getTotalLength();p.style.strokeDasharray=n;p.style.strokeDashoffset=n});
+ /* Process is legible in normal document flow; no long pinned artificial scroll */}
+if(true){$$(".step").forEach(s=>{s.style.cssText="position:relative;opacity:1;margin:0"});$(".steps").style.height="auto";const p=$(".proc");p.style.height="auto";p.style.padding="clamp(80px,12vh,150px) var(--px)"}
+/* wow layer */
+
+/* practice panel stays steady; interaction highlighted inside the scene */
+if(G&&!RM){
+  /* removed whole-section masking -- kept content steady and readable */
+ $$(".case").forEach(c=>{const ln=document.createElement("i");ln.style.cssText="position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--au);transform-origin:left";c.style.position="relative";c.append(ln);gsap.from(ln,{scaleX:0,duration:1.6,ease:"power3.inOut",scrollTrigger:{trigger:c,start:"top 88%"}})})}
+
+
+
+/* refinement layer */
+[["#firm","01 — The firm"],["#practice","02 — Practice areas"],["#attorneys","03 — Attorneys"],["#cases","05 — Case outcomes"],["#insights","07 — Legal insights"],["#faq","08 — Common questions"],["#contact","09 — Consultation"]].forEach(([q,t])=>{const h=$(q+" h2");if(!h)return;const p=document.createElement("p");p.className="eb";p.textContent=t;const x=h.closest(".firm,.top")||h;x.parentNode.insertBefore(p,x)});
+{const p=document.createElement("p");p.className="eb";p.textContent="06 — Client experiences";$("#rq").parentNode.insertBefore(p,$("#rq"))}
+const mb=$(".menu");mb.onclick=()=>{const o=document.body.classList.toggle("nav");mb.setAttribute("aria-expanded",o);mb.textContent=o?"Close":"Menu"};$$("nav a").forEach(a=>a.addEventListener("click",()=>{document.body.classList.remove("nav");mb.setAttribute("aria-expanded","false");mb.textContent="Menu"}));
+const dlg=$("#dlg"),db=$("#dbody"),opn=h=>{db.innerHTML=h;if(dlg.showModal)dlg.showModal();else dlg.setAttribute("open","")};
+dlg.querySelector(".x").onclick=()=>dlg.close();dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+const toC=()=>{dlg.close();$("#contact").scrollIntoView({behavior:RM?"auto":"smooth"})};
+const ART=[["Your rights","What to say, and not say, when police call","<p>A friendly request for a quick conversation is still part of an investigation. You can politely decline to answer questions, say you would like to speak with a lawyer first, and decline to consent to a search.</p><p>Never lie to investigators, and do not guess at details you are unsure about. Contact a defense attorney before any interview.</p>"],["Federal","Target, subject or witness? Reading a grand jury letter","<p>Federal prosecutors generally describe a witness as someone with information, a subject as someone whose conduct is within the scope of the investigation, and a target as someone they believe is a likely defendant.</p><p>The labels can change, and letters vary. Receiving one is a reason to speak with counsel promptly.</p>"],["DUI","The license deadline most drivers miss","<p>After a DUI arrest, many states set a short window, sometimes only days, to request a hearing on a license suspension. That clock can run separately from the criminal case.</p><p>The deadline depends on your state, so check the notice you were given and contact an attorney quickly.</p>"]];
+$$(".ins a").forEach((a,i)=>{const go=()=>opn(`<p class="eb">${ART[i][0]}</p><h3 id="dt">${ART[i][1]}</h3>${ART[i][2]}<p class="fine2">Concept demonstration. General information only, not legal advice, and no attorney-client relationship is created.</p><a class="btn" href="#contact" id="dgo">Speak with an attorney</a>`);a.onclick=()=>{go();$("#dgo").onclick=e=>{e.preventDefault();toC()}};a.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();a.onclick()}}});
+$$(".pa .d").forEach((d,i)=>{const a=document.createElement("a");a.className="lnk";a.href="#contact";a.textContent="Discuss this matter →";a.addEventListener("click",e=>{e.preventDefault();F.elements.type.selectedIndex=i;$("#contact").scrollIntoView({behavior:RM?"auto":"smooth"})});d.firstElementChild.append(a)});
+window.CI=-1;const CS=$$(".case");CS.forEach((c,i)=>{const t=()=>{const on=c.getAttribute("aria-expanded")!=="true";CS.forEach(x=>x.setAttribute("aria-expanded","false"));c.setAttribute("aria-expanded",on);window.CI=on?i:-1;setTimeout(()=>G&&ScrollTrigger.refresh(),700)};c.onclick=t;c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();t()}}});
+
+
+/* ===== Attorney chapters. Configure here for each client firm. ===== */
+const HMR={defaultAttorney:0,order:[0,1,2,3,4,5],portraitDir:"images/portraits/"};
+/* Drop licensed portraits (1200px+ tall, same lighting) into portraitDir named <id>.jpg; they replace the stock fallbacks automatically. */
+const AT=[
+{id:"victoria-hale",first:"Victoria",last:"Hale",role:"Managing Partner",areas:"Federal defense · White-collar",img:"",m:0,q:"The best defense starts before anyone files a charge.",who:"Victoria spent a decade prosecuting federal cases before crossing the aisle. She knows how investigators build a file, and where files quietly fall apart.",how:"She engages early, often before any charge, and treats the first conversation with the government as the most important of the case.",work:["Dismissal of an eleven-count wire fraud indictment","Grand jury strategy for a regional executive","Negotiated non-prosecution in a cross-border inquiry"],edu:"J.D., Concept University School of Law",adm:"Illinois; N.D. Ill.; 7th Cir."},
+{id:"marcus-ellery",first:"Marcus",last:"Ellery",role:"Partner, Trial",areas:"Jury trials · DUI · Violent crime",img:"",m:1,q:"Juries trust what they can follow. I make the case simple and true.",who:"Marcus has tried cases from misdemeanors to homicide. Clients describe him as calm in the courtroom and blunt about risk in the office.",how:"He prepares every case as if it will be tried, which is why many are resolved on better terms than anyone expected.",work:["Acquittal on aggravated assault after two hours of deliberation","Suppression of chemical-test evidence in a felony DUI","Self-defense verdict supported by enhanced video"],edu:"J.D., Concept University School of Law",adm:"Illinois; Indiana"},
+{id:"elena-marchetti",first:"Elena",last:"Marchetti",role:"Partner, Drug & Violent Crime",areas:"Suppression · Drug offenses · Assault",img:"",m:3,q:"Every search has a story. Mine is the one the report left out.",who:"A former public defender, Elena built her reputation on motions to suppress and a close reading of how evidence was obtained.",how:"She reconstructs the stop, the warrant and the informant file minute by minute, then lets the record make the argument.",work:["Evidence excluded after an unlawful vehicle stop","Trafficking charge reduced following a warrant challenge","Dismissal where an informant's account could not be corroborated"],edu:"J.D., Concept University School of Law",adm:"Illinois; N.D. Ill."},
+{id:"walter-brandt",first:"Walter",last:"Brandt",role:"Of Counsel, Appeals",areas:"Appeals · Post-conviction · Sentencing",img:"",m:5,q:"Appeals are won in the record, one page at a time.",who:"Walter joined the firm after a long career in appellate practice. He writes the briefs that appellate judges ask to see.",how:"He reads the entire record, preserves every issue, and argues the one point most likely to change the outcome.",work:["Reversal for an improper jury instruction","Sentence vacated and remanded for resentencing","Post-conviction relief based on newly disclosed evidence"],edu:"J.D., Concept University School of Law",adm:"Illinois; 7th Cir."},
+{id:"daniel-reyes",first:"Daniel",last:"Reyes",role:"Partner, Investigations",areas:"Pre-charge defense · Corporate · Subpoenas",img:"",m:2,q:"The strongest result is the charge that is never filed.",who:"Daniel represents individuals and companies during investigations, often before any charge exists, and manages every exchange with agencies and prosecutors.",how:"He controls what is said, to whom and when, so that a client's first response does not become the government's best exhibit.",work:["Subpoena response strategy for a closely held company","Resolution of a regulatory inquiry without charges","Internal review leading to voluntary disclosure on favorable terms"],edu:"J.D., Concept University School of Law",adm:"Illinois; New York"},
+{id:"priya-natarajan",first:"Priya",last:"Natarajan",role:"Senior Associate",areas:"Digital evidence · Fraud · Drug cases",img:"",m:2,q:"Phones, location data, ledgers: the facts are in the data.",who:"Priya works with forensic examiners on phone, location and financial data, and often finds the inconsistency that reshapes a case.",how:"She translates technical evidence into plain questions a judge or jury can weigh, and challenges what cannot be explained.",work:["Location-data analysis that undercut a trafficking theory","Forensic ledger rebuild in a fraud defense","Motion practice on the reliability of extraction tools"],edu:"J.D., Concept University School of Law",adm:"Illinois"}];
+const ROM=["I","II","III","IV","V","VI"],OR=HMR.order.filter(i=>AT[i]),rs=$("#roster"),ft=$("#feat"),mk=rs.querySelector(".mark");let cur=-1,ready=false;
+OR.forEach((ai,p)=>{const d=AT[ai],b=document.createElement("button");b.type="button";b.innerHTML=`<span class="rn">${ROM[p]}</span><span class="rt"><b>${d.first} ${d.last}</b><small>${d.role}</small></span>`;b.onclick=()=>sA(p);b.onkeydown=e=>{const k=e.key;let n=null;if(k==="ArrowDown"||k==="ArrowRight")n=(p+1)%OR.length;if(k==="ArrowUp"||k==="ArrowLeft")n=(p+OR.length-1)%OR.length;if(k==="Home")n=0;if(k==="End")n=OR.length-1;if(n!==null){e.preventDefault();sA(n,0,1)}};rs.append(b)});
+const rb=()=>[...rs.querySelectorAll("button")];
+function anim(dir){if(!G||RM)return;const q=x=>ft.querySelectorAll(x),tl=gsap.timeline({defaults:{ease:"power3.out"}});
+ tl.fromTo(q(".frame"),{clipPath:dir>0?"inset(100% 0 0 0)":"inset(0 0 100% 0)"},{clipPath:"inset(0% 0 0 0)",duration:1,ease:"power3.inOut"},0)
+ .fromTo(q(".frame img"),{scale:1.22,yPercent:dir>0?5:-5},{scale:1.06,yPercent:0,duration:1.6},0)
+ .fromTo(q(".num"),{opacity:0,xPercent:-14},{opacity:1,xPercent:0,duration:1.1},.15)
+ .fromTo(q(".kick"),{opacity:0,y:14},{opacity:1,y:0,duration:.6},.1)
+ .fromTo(q(".nm em"),{yPercent:115},{yPercent:0,duration:.9,stagger:.09},.12)
+ .fromTo(q(".pq,.cols section,.lab,.exp,.cred,.act"),{opacity:0,y:22},{opacity:1,y:0,duration:.7,stagger:.06},.32)}
+function sA(p,init,foc){const d=AT[OR[p]],dir=p>=cur?1:-1;cur=p;const bs=rb();bs.forEach((b,j)=>{if(j===p)b.setAttribute("aria-current","true");else b.removeAttribute("aria-current");b.tabIndex=j===p?0:-1});if(foc)bs[p].focus();
+ const src=HMR.portraitDir+d.id+".jpg";
+ ft.innerHTML=`<article class="story" aria-label="${d.first} ${d.last}"><figure class="shot"><div class="frame"><span class="ini" aria-hidden="true">${d.first[0]}${d.last[0]}</span><img src="${src}" data-fb="${d.img}" alt="Illustrative portrait of ${d.first} ${d.last}, a fictional attorney" decoding="async"></div><span class="num" aria-hidden="true">${ROM[p]}</span><figcaption>${d.first} ${d.last} · ${d.role}</figcaption></figure><div class="copy"><p class="kick">${d.role}<span>${d.areas}</span></p><h3 class="nm"><span><em>${d.first}</em></span><span><em>${d.last}</em></span></h3><blockquote class="pq">“${d.q}”</blockquote><div class="cols"><section><h4>Who ${d.first} is</h4><p>${d.who}</p></section><section><h4>How ${d.first} defends</h4><p>${d.how}</p></section></div><p class="lab">Representative work · fictional</p><ul class="exp">${d.work.map(x=>`<li>${x}</li>`).join("")}</ul><p class="cred">${d.edu} (fictional) · Admitted: ${d.adm} (fictional)</p><div class="act"><a class="btn" href="#contact" id="fgo">Discuss your case with ${d.first}</a><div class="pn"><button type="button" id="pv" aria-label="Previous attorney">←</button><button type="button" id="nx" aria-label="Next attorney">→</button></div></div><p class="fine2">Fictional profile for a concept demonstration. No real person, credential or admission is implied.</p></div></article>`;
+ const im=ft.querySelector("img");im.onerror=()=>{if(im.dataset.fb){const f=im.dataset.fb;im.dataset.fb="";im.src=f}else im.hidden=true};
+ $("#fgo").onclick=e=>{e.preventDefault();F.elements.type.selectedIndex=d.m;if(!F.elements.message.value)F.elements.message.value=`I would like to discuss my case with ${d.first} ${d.last}.`;$("#contact").scrollIntoView({behavior:RM?"auto":"smooth"})};
+ $("#pv").onclick=()=>sA((p+OR.length-1)%OR.length);$("#nx").onclick=()=>sA((p+1)%OR.length);
+ const b=bs[p];if(mk){mk.style.height=b.offsetHeight+"px";mk.style.transform=`translateY(${b.offsetTop}px)`}
+ const nb=AT[OR[(p+1)%OR.length]];(new Image).src=HMR.portraitDir?HMR.portraitDir+nb.id+".jpg":nb.img;
+ if(!init){if(innerWidth<861)ft.scrollIntoView({behavior:RM?"auto":"smooth",block:"start"});anim(dir)}}
+sA(Math.max(0,OR.indexOf(HMR.defaultAttorney)),1);
+if(G&&!RM){const go=()=>anim(1);ScrollTrigger.create({trigger:ft,start:"top 82%",once:true,onEnter:go});
+ gsap.from("#roster button",{opacity:0,x:-26,stagger:.07,duration:.8,ease:"power3.out",scrollTrigger:{trigger:".showcase",start:"top 82%"}});
+ /* static portrait on pointer movement -- avoid unnecessary vestibular motion */}
+{let tx=0;ft.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});ft.addEventListener("touchend",e=>{if(!e.target.closest(".shot"))return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>60)sA((cur+(dx<0?1:OR.length-1))%OR.length)},{passive:true})}
+$$(".err").forEach(e=>{e.id="err-"+e.dataset.f;F.elements[e.dataset.f].setAttribute("aria-describedby",e.id)});
+{const nl=$$("nav a"),io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)nl.forEach(a=>a.toggleAttribute("aria-current",a.getAttribute("href")==="#"+x.target.id))}),{rootMargin:"-45% 0px -50% 0px"});["firm","practice","attorneys","cases","insights","contact"].forEach(i=>io.observe($("#"+i)))}
+
+});
+</script></body></html>
