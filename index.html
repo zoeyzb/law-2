@@ -401,6 +401,11 @@ header{background:rgba(7,9,13,.9)!important;backdrop-filter:blur(10px);-webkit-b
 .js-rv .rv{opacity:0;transform:translateY(36px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}.js-rv .rv.in{opacity:1;transform:none}
 @media(max-width:860px){.hero>svg.parl{height:34%}}
 @media(prefers-reduced-motion:reduce){.heroart,.hero>.aurora,.parl .lit,.hero::after{animation:none!important}.js-rv .rv{opacity:1!important;transform:none!important}}
+
+/* Asset repair: local photography, unchanged 3D courthouse. */
+.firm-panel .office-photo{display:block;width:100%;aspect-ratio:16/9;max-height:260px;object-fit:cover;object-position:center;filter:saturate(.55) contrast(1.12) brightness(.82);border:1px solid rgba(201,176,138,.25);margin-bottom:28px}
+.case-still{background:linear-gradient(90deg,rgba(4,9,17,.9),rgba(4,9,17,.46)),linear-gradient(0deg,rgba(4,9,17,.86),transparent 72%),url("images/editorial/legal-library.jpg") center/cover no-repeat}
+.case-still strong,.case-still span,.case-still em{text-shadow:0 2px 16px rgba(0,0,0,.9)}
 </style></head><body><a class="skip" href="#top">Skip to content</a>
 <div id="load" role="status">HALE · MARCHETTI · REYES</div><div class="grain" aria-hidden="true"></div>
 <div class="demo">Concept demo · all people, cases and reviews are fictional</div>
@@ -420,7 +425,7 @@ header{background:rgba(7,9,13,.9)!important;backdrop-filter:blur(10px);-webkit-b
  <h2 id="fh"><span>The defense</span><span>you deserve.</span></h2>
  <div class="l"><p>Early decisions can shape your entire case. We help you understand your rights, assess the evidence, and act before important options disappear.</p><p>Our approach starts with the facts: the stop, the search, the statements, and the witnesses. Every detail deserves scrutiny.</p>
  <div class="stats"><div><b>20+</b><span>years combined · sample</span></div><div><b>3</b><span>practice teams · sample</span></div><div><b>24/7</b><span>availability · sample</span></div></div></div>
- <aside class="a firm-panel" aria-labelledby="fp"><svg class="elev" viewBox="0 0 400 190" fill="none" stroke="url(#sg)" stroke-width="1" aria-hidden="true"><defs><linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="#e3c79c"/><stop offset="1" stop-color="#7a6040"/></linearGradient><g id="cl"><path d="M-8 62H8M-6 66H6"/><path d="M-5 66V142M-2 66V142M2 66V142M5 66V142"/><path d="M-8 142H8M-9 146H9"/></g></defs><path d="M16 56L200 8L384 56ZM44 48L200 12L356 48"/><path d="M16 56H384V62H16ZM24 62H376"/><use href="#cl" x="50.0"/><use href="#cl" x="93.4"/><use href="#cl" x="136.8"/><use href="#cl" x="180.2"/><use href="#cl" x="223.6"/><use href="#cl" x="267.0"/><use href="#cl" x="310.4"/><use href="#cl" x="353.8"/><path d="M24 150H376M16 156H384M8 162H392M0 168H400M-0 174H400"/></svg><p class="eb" id="fp">What to expect</p><ol><li><b>We listen first.</b>You explain what is happening, in your own words.</li><li><b>We explain the process.</b>Charges, deadlines and what typically comes next.</li><li><b>You decide.</b>Options and fees are laid out before you commit to anything.</li></ol></aside>
+ <aside class="a firm-panel" aria-labelledby="fp"><img class="elev office-photo" src="images/editorial/legal-office.jpg" alt="Illustrative professional meeting room" loading="lazy" decoding="async"><p class="eb" id="fp">What to expect</p><ol><li><b>We listen first.</b>You explain what is happening, in your own words.</li><li><b>We explain the process.</b>Charges, deadlines and what typically comes next.</li><li><b>You decide.</b>Options and fees are laid out before you commit to anything.</li></ol></aside>
  
 </div></section>
 
@@ -539,7 +544,7 @@ const stoneT=(()=>{const[c,x]=cvs(512,512);x.fillStyle="#8c877b";x.fillRect(0,0,
 const woodT=(()=>{const[c,x]=cvs(512,512);x.fillStyle="#1b1611";x.fillRect(0,0,512,512);for(let i=0;i<90;i++){x.fillStyle=`rgba(${Math.random()<.5?"0,0,0":"90,60,35"},${.08+Math.random()*.12})`;x.fillRect(Math.random()*512,0,1+Math.random()*3,512)}x.strokeStyle="rgba(0,0,0,.55)";x.lineWidth=4;for(let i=0;i<4;i++)x.strokeRect(i*128+6,20,116,472);return T2(c,1,1)})();
 const M=o=>new THREE.MeshStandardMaterial(o),blk=M({map:marT(1,1,"#0b0d12"),roughness:.1,metalness:.3,envMapIntensity:1.4}),blk3=M({map:marT(1,3,"#0b0d12"),roughness:.12,metalness:.3,envMapIntensity:1.2}),stone=M({map:stoneT,roughness:.6,metalness:.03,envMapIntensity:.7}),wood=M({map:woodT,roughness:.5,metalness:.05,envMapIntensity:.5}),bronze=M({color:0x8a6b45,metalness:.85,roughness:.38,envMapIntensity:1}),steel=M({color:0x9aa4b2,metalness:1,roughness:.25,envMapIntensity:1.3}),navy=M({color:0x111a2b,roughness:.7,metalness:.1});
 const V=a=>new THREE.Vector2(a[0],a[1]),LA=(p,m,s)=>new THREE.Mesh(new THREE.LatheGeometry(p.map(V),s||48),m),Bx=(w,h,d,m,x,y,z)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);return o},Cy=(a,b,h,m,x,y,z,s)=>{const o=new THREE.Mesh(new THREE.CylinderGeometry(a,b,h,s||32),m);o.position.set(x,y,z);return o};
-const stg=i=>{const g=new THREE.Group();g.position.x=i*300;S.add(g);return g};
+const stg=i=>{const g=new THREE.Group();g.position.x=0;S.add(g);return g};
 const glow=(w,h,c)=>new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:c||0xffd7a6,fog:false}));
 const mist=(g,n,R,H,c)=>{const a=new Float32Array(n*3);for(let i=0;i<n;i++){a[i*3]=(Math.random()-.5)*R*2;a[i*3+1]=Math.random()*H;a[i*3+2]=(Math.random()-.5)*R*2}const q=new THREE.BufferGeometry();q.setAttribute("position",new THREE.BufferAttribute(a,3));const p=new THREE.Points(q,new THREE.PointsMaterial({color:c||0xbfd0ea,size:.08,transparent:true,opacity:.35,depthWrite:false}));g.add(p);return p};
 const flG=new THREE.CylinderGeometry(.82,.92,12,44,1),fp=flG.attributes.position;for(let i=0;i<fp.count;i++){const x=fp.getX(i),z=fp.getZ(i),a=Math.atan2(z,x),k=1-.05*Math.pow(Math.abs(Math.sin(a*10)),.45);fp.setX(i,x*k);fp.setZ(i,z*k)}flG.computeVertexNormals();
