@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hale Marchetti Reyes — Criminal Defense (Concept Demo)</title>
-<meta name="description" content="Concept demonstration: a criminal defense law firm website. All people, cases and reviews are fictional."><meta name="theme-color" content="#07090d"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet"><style>
+<meta name="description" content="Concept demonstration: a criminal defense law firm website. All people, cases and reviews are fictional."><meta name="theme-color" content="#07090d"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23070e1a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia' font-size='30' fill='%23c9b08a'%3EH%3C/text%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet"><style>
 :root{--ob:#090909;--ch:#171717;--iv:#F1EDE4;--au:#9b7b52;--mut:rgba(241,237,228,.7);--serif:"Cormorant Garamond","Didot","Bodoni MT",Georgia,serif;--sans:"Helvetica Neue",Arial,sans-serif;--px:clamp(20px,5vw,72px)}
 *{box-sizing:border-box;margin:0;padding:0}html{background:var(--ob)}
 body{background:var(--ob);color:var(--iv);font:17px/1.65 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -406,6 +406,41 @@ header{background:rgba(7,9,13,.9)!important;backdrop-filter:blur(10px);-webkit-b
 .firm-panel .office-photo{display:block;width:100%;aspect-ratio:16/9;max-height:260px;object-fit:cover;object-position:center;filter:saturate(.55) contrast(1.12) brightness(.82);border:1px solid rgba(201,176,138,.25);margin-bottom:28px}
 .case-still{background:linear-gradient(90deg,rgba(4,9,17,.9),rgba(4,9,17,.46)),linear-gradient(0deg,rgba(4,9,17,.86),transparent 72%),url("images/editorial/legal-library.jpg") center/cover no-repeat}
 .case-still strong,.case-still span,.case-still em{text-shadow:0 2px 16px rgba(0,0,0,.9)}
+
+/* October 2026: visible cinematic legal environment and intentional editorial presentation. */
+#firm{background:linear-gradient(110deg,#070e1a 0%,#0e1e34 52%,#0a1424 100%)!important}
+#firm .firm-panel{padding:0;background:linear-gradient(155deg,rgba(22,35,52,.96),rgba(7,15,27,.98));border-color:rgba(190,157,112,.36);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+#firm .firm-panel .office-photo{display:block;width:100%;height:clamp(250px,25vw,330px);max-height:none;aspect-ratio:auto;object-fit:cover;object-position:54% 44%;filter:saturate(.64) contrast(1.06) brightness(.86);border:0;margin:0}
+#firm .firm-panel .eb{margin:0;padding:26px 32px 4px;color:#cbb38d}
+#firm .firm-panel ol{margin:0;padding:0 32px 28px}
+#firm .firm-panel li{padding:15px 0;font-size:15px;line-height:1.5;color:#e0dfdc}
+#firm .firm-panel li b{font-size:clamp(23px,2.1vw,31px);line-height:1.12;margin-bottom:5px}
+#firm .l p{max-width:34ch;color:#dedbdb}
+#firm .l p:first-child{color:#fbf4e8}
+#firm .stats{gap:clamp(24px,3vw,50px);margin-top:30px}
+#practice{background:linear-gradient(90deg,#091321 0%,rgba(7,16,29,.98) 36%,rgba(7,16,29,.65) 54%,rgba(7,16,29,.12) 82%,rgba(7,16,29,.1) 100%)!important}
+#practice .stage{background:transparent!important;box-shadow:none!important;border:0!important}
+#practice .stage figcaption{right:18px;bottom:16px;font-size:clamp(20px,2vw,28px);text-shadow:0 2px 10px #000,0 0 20px #000}
+body:not(.has-webgl) #practice .stage{background:linear-gradient(105deg,rgba(8,15,25,.07),rgba(5,9,16,.23)),url('images/editorial/legal-library.jpg') center/cover no-repeat!important}
+body:not(.has-webgl) #practice .case-still{background:linear-gradient(145deg,rgba(4,9,17,.26),rgba(4,9,17,.61)),url('images/editorial/legal-library.jpg') center/cover no-repeat;box-shadow:0 24px 70px rgba(0,0,0,.2)}
+@media(max-width:860px){
+ #firm .firm-panel .office-photo{height:235px}
+ #firm .firm-panel .eb{padding:20px 24px 0}
+ #firm .firm-panel ol{padding:0 24px 24px}
+ #practice{background:linear-gradient(180deg,#091321 0%,rgba(7,16,29,.86) 46%,rgba(7,16,29,.34) 100%)!important}
+}
+
+/* A text section must never remain hidden because an observer animation missed a scroll event. */
+@media(max-width:860px){
+ html.js-rv .rv{opacity:1!important;transform:none!important;transition:none!important}
+}
+/* On phones: the actual practice list comes first. No full-screen 3D wall before the content. */
+@media(max-width:860px){
+ #practice.pa{display:flex!important;flex-direction:column!important;gap:28px!important;background:#091321!important}
+ #practice.pa>div:first-child{order:0}
+ #practice.pa>.stage{order:1!important;position:relative!important;top:auto!important;height:290px!important;min-height:290px!important;max-height:290px!important;width:100%;background:linear-gradient(0deg,rgba(5,11,19,.38),rgba(5,11,19,.06)),url('images/editorial/legal-library.jpg') center/cover no-repeat!important;outline:1px solid rgba(201,176,138,.25)}
+ #practice.pa>.stage figcaption{bottom:18px;right:18px;font-size:23px;text-shadow:0 2px 10px #000}
+}
 </style></head><body><a class="skip" href="#top">Skip to content</a>
 <div id="load" role="status">HALE · MARCHETTI · REYES</div><div class="grain" aria-hidden="true"></div>
 <div class="demo">Concept demo · all people, cases and reviews are fictional</div>
@@ -425,7 +460,7 @@ header{background:rgba(7,9,13,.9)!important;backdrop-filter:blur(10px);-webkit-b
  <h2 id="fh"><span>The defense</span><span>you deserve.</span></h2>
  <div class="l"><p>Early decisions can shape your entire case. We help you understand your rights, assess the evidence, and act before important options disappear.</p><p>Our approach starts with the facts: the stop, the search, the statements, and the witnesses. Every detail deserves scrutiny.</p>
  <div class="stats"><div><b>20+</b><span>years combined · sample</span></div><div><b>3</b><span>practice teams · sample</span></div><div><b>24/7</b><span>availability · sample</span></div></div></div>
- <aside class="a firm-panel" aria-labelledby="fp"><img class="elev office-photo" src="images/editorial/legal-office.jpg" alt="Illustrative professional meeting room" loading="lazy" decoding="async"><p class="eb" id="fp">What to expect</p><ol><li><b>We listen first.</b>You explain what is happening, in your own words.</li><li><b>We explain the process.</b>Charges, deadlines and what typically comes next.</li><li><b>You decide.</b>Options and fees are laid out before you commit to anything.</li></ol></aside>
+ <aside class="a firm-panel" aria-labelledby="fp"><img class="elev office-photo" src="images/editorial/law-library.jpg" alt="Historic law and research library, illustrative photography" loading="lazy" decoding="async"><p class="eb" id="fp">What to expect</p><ol><li><b>We listen first.</b>You explain what is happening, in your own words.</li><li><b>We explain the process.</b>Charges, deadlines and what typically comes next.</li><li><b>You decide.</b>Options and fees are laid out before you commit to anything.</li></ol></aside>
  
 </div></section>
 
@@ -582,21 +617,16 @@ const sky=new THREE.Mesh(new THREE.PlaneGeometry(500,160),new THREE.MeshBasicMat
 const g2=stg(2), caseGlows=[], casePanels=[];
 const rear=Bx(76,23,1,navy,0,11,-20), floor2=Bx(78,.4,45,blk,0,-.2,-2);
 g2.add(rear,floor2);
-for(let i=-16;i<=16;i+=4){
- const panel=Bx(3.7,20,.32,wood,i,10,-19.3),rail=Bx(.05,20,.4,bronze,i+1.92,10,-19.05);
- g2.add(panel,rail);
-}
-for(let j=0;j<3;j++){
- const y=3.3+j*5.2;g2.add(Bx(39,.34,3.1,wood,0,y,-16.8));
- for(let i=0;i<30;i++){
-  const x=-18.5+i*1.25,ht=2.9+Math.sin(i*2.1+j)*.7;
-  const book=Bx(.68,ht,1.8,i%6===0?bronze:(i%5===0?navy:wood),x,y+ht/2+.15,-16.7);
-  book.rotation.z=(i%13===0)?-.055:0;
-  const band=Bx(.7,.06,1.82,bronze,x,y+ht*.30,-16.69);
-  g2.add(book,band);
- }
-}
-g2.add(Bx(41,.6,1,bronze,0,20,-17.8));
+ // Photographic texture turns the legal research environment into a believable library,
+ // while the foreground desk, folders and lighting remain genuine Three.js geometry.
+ const researchTexture=new THREE.TextureLoader().load('images/editorial/research-books.jpg',()=>{window.__dirty=true});
+ researchTexture.encoding=THREE.sRGBEncoding;researchTexture.anisotropy=Math.min(8,R3.capabilities.getMaxAnisotropy());
+ const researchBackdrop=new THREE.Mesh(new THREE.PlaneGeometry(52,24),
+   new THREE.MeshBasicMaterial({map:researchTexture,color:0xc6b8a9,fog:false,side:THREE.DoubleSide}));
+ researchBackdrop.position.set(0,10,-19.3);g2.add(researchBackdrop);
+
+// Retain the genuine 3D desk and lighting, but use an accurate high-resolution
+// photo for the wall instead of placeholder geometric rectangular bookcases.
 // Foreground legal preparation table with paper, binders and warm task lighting.
 const desk=new THREE.Group();desk.position.set(5,0,5);g2.add(desk);
 desk.add(Bx(28,.7,9,wood,0,3.65,0),Bx(1.1,3.3,8.5,blk,-12,1.8,0),Bx(1.1,3.3,8.5,blk,12,1.8,0));

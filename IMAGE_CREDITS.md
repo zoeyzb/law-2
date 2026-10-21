@@ -16,3 +16,5 @@ Images were downloaded from [Unsplash](https://unsplash.com/) under the [Unsplas
 | images/editorial/legal-office.jpg | https://images.unsplash.com/photo-1497366811353-6870744d04b2 |
 
 Only the missing imagery, existing fallback panel and incorrectly offset 3D practice stage were addressed; the original courthouse model, cinematic camera behavior, hero, layout, and copy remain intact.
+| images/editorial/law-library.jpg | https://images.unsplash.com/photo-1505664194779-8beaceb93744 |
+| images/editorial/research-books.jpg | https://images.unsplash.com/photo-1521587760476-6c12a4b040da |
