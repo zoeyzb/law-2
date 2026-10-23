@@ -18,3 +18,12 @@ Images were downloaded from [Unsplash](https://unsplash.com/) under the [Unsplas
 Only the missing imagery, existing fallback panel and incorrectly offset 3D practice stage were addressed; the original courthouse model, cinematic camera behavior, hero, layout, and copy remain intact.
 | images/editorial/law-library.jpg | https://images.unsplash.com/photo-1505664194779-8beaceb93744 |
 | images/editorial/research-books.jpg | https://images.unsplash.com/photo-1521587760476-6c12a4b040da |
+
+## Updated Practice Areas photography (October 23, 2026)
+
+- Local asset: `images/editorial/practice-law-library.jpg`
+- Photographer: Mathew Schwartz
+- Source: https://unsplash.com/photos/building-interior-with-chandeliers-and-desks-onOdABjwC0M
+- License: https://unsplash.com/license (commercial use allowed)
+- Photograph depicts the University of Michigan Law School library, not the fictional HMR office.
+- The artificial WebGL desk is not rendered in the Practice Areas section; the courthouse hero and other scene behavior remain.
